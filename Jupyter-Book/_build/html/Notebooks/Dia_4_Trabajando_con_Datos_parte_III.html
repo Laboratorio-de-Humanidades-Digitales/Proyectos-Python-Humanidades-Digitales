@@ -1,0 +1,1231 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Día 4 - Trabajando con operadores lógicos y expresiones condicionales &#8212; Proyectos de Python en Humanidades Digitales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Dia_4_Trabajando_con_Datos_parte_III';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)" href="Dia_3_Trabajando_con_Datos_parte_II.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/H-Lab-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/H-Lab-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Advanced Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Dia_2_Trabajando_con_Datos_parte_I.html">Clase 2: Trabajando con Datos en Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Análisis de Datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Dia_3_Trabajando_con_Datos_parte_II.html">Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 1</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Día 4 - Trabajando con operadores lógicos y expresiones condicionales</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales.git/main?urlpath=tree/book/Notebooks/Dia_4_Trabajando_con_Datos_parte_III.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales.git/blob/main/book/Notebooks/Dia_4_Trabajando_con_Datos_parte_III.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales.git/issues/new?title=Issue%20on%20page%20%2FNotebooks/Dia_4_Trabajando_con_Datos_parte_III.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/Dia_4_Trabajando_con_Datos_parte_III.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Día 4 - Trabajando con operadores lógicos y expresiones condicionales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#al-final-de-este-capitulo-seras-capaz-de">Al final de este capítulo, serás capaz de:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expresiones-booleanas">1. Expresiones booleanas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Expresiones booleanas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-comparativos">1.1 Operadores comparativos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-de-pertenencia">1.2 Operadores de pertenencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-or-y-not">1.3 And, or y not</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionales-instrucciones-if">2. Condicionales: instrucciones <code class="docutils literal notranslate"><span class="pre">if</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decisiones-de-dos-escenarios">2.1 Decisiones de dos escenarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decisiones-con-multiples-opciones">2.2 Decisiones con múltiples opciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indentacion">3. Indentación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anidamiento">3.1 Anidamiento</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-4">Ejercicio 4:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-5">Ejercicio 5:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-6">Ejercicio 6:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dia-4-trabajando-con-operadores-logicos-y-expresiones-condicionales">
+<h1>Día 4 - Trabajando con operadores lógicos y expresiones condicionales<a class="headerlink" href="#dia-4-trabajando-con-operadores-logicos-y-expresiones-condicionales" title="Permalink to this heading">#</a></h1>
+<p>Hasta ahora, hemos aprendido cómo usar Python como una calculadora básica y cómo almacenar información en variables. Ahora estableceremos los primeros pasos hacia un programa útil real. Gran parte de la programación tiene que ver con ejecutar código si se cumple una condición particular. Esto permite que un programa actúe según sus entradas. Por ejemplo: una aplicación en tu teléfono podría dar una advertencia si el nivel de batería es inferior al 5%. Podemos hacer estas verificaciones usando <em>expresiones booleanas</em>. Estas son el elemento principal en probablemente una de las herramientas más utilizadas en Python: las <em>instrucciones if</em>.</p>
+<section id="al-final-de-este-capitulo-seras-capaz-de">
+<h2>Al final de este capítulo, serás capaz de:<a class="headerlink" href="#al-final-de-este-capitulo-seras-capaz-de" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Trabajar y entender <em>expresiones booleanas</em></p></li>
+<li><p>Trabajar y entender <em>if statements</em></p></li>
+<li><p>Entender como manejar <em>indentación</em></p></li>
+<li><p>Entender qué es <em>anidado</em></p></li>
+</ul>
+</section>
+<section id="expresiones-booleanas">
+<h2>1. Expresiones booleanas<a class="headerlink" href="#expresiones-booleanas" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="id1">
+<h2>1. Expresiones booleanas<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Una <strong>expresión booleana</strong> es una expresión que resulta en una variable <code class="docutils literal notranslate"><span class="pre">bool</span></code> en Python. Los valores posibles son <strong><code class="docutils literal notranslate"><span class="pre">True</span></code></strong> o <strong><code class="docutils literal notranslate"><span class="pre">False</span></code></strong>. Las expresiones booleanas son los bloques fundamentales de la programación. Cualquier expresión que resulte en <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code> puede considerarse una expresión booleana.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;bool&#39;&gt;
+&lt;class &#39;bool&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="operadores-comparativos">
+<h3>1.1 Operadores comparativos<a class="headerlink" href="#operadores-comparativos" title="Permalink to this heading">#</a></h3>
+<p>Aqui hay una lista de  <strong><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#comparisons">operadores comparativos</a></strong> usados en expresiones booleanas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operador</p></th>
+<th class="head"><p>Significado</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p>igual a</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">==</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">==</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>distinto a</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">!=</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">!=</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>menor que</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">13</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>menor o igual que</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&lt;=</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">&lt;=</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>mayor que</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">13</span> <span class="pre">&gt;</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">13</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>mayor o igual que</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">&gt;=</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&gt;=</span> <span class="pre">3</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>¡Recuerda que el signo = se reserva para asignación! Las expresiones booleanas observan variables pero nunca las cambian.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;school&quot;</span> <span class="o">==</span> <span class="s2">&quot;school&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span> <span class="o">!=</span> <span class="s2">&quot;SPSS&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+False
+False
+True
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p>En Python, decimos que una expresión lógica de este tipo se ‘evalúa’ cuando ejecutas el código. El resultado de dicha evaluación es un ‘valor binario’ o un llamado ‘booleano’ que solo puede tomar dos valores posibles: <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>. Puedes asignar dicho booleano a una variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greater</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">20</span>   <span class="c1">#25 &gt; 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greater</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">greater</span><span class="p">))</span>
+<span class="n">greater</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">40</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1">#30 &lt; 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greater</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">greater</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True &lt;class &#39;bool&#39;&gt;
+False &lt;class &#39;bool&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Prueba los siguientes ejemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">20</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">boolean_expression</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boolean_expression</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operadores-de-pertenencia">
+<h3>1.2 Operadores de pertenencia<a class="headerlink" href="#operadores-de-pertenencia" title="Permalink to this heading">#</a></h3>
+<p>Python también tiene los llamados <strong><a class="reference external" href="https://docs.python.org/3.5/reference/expressions.html#not-in">operadores de pertenencia</a></strong>:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operador</p></th>
+<th class="head"><p>Función</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">in</span></code></p></td>
+<td><p>el objeto de la izquierda es miembro del objeto de la derecha</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;g&quot;</span> <span class="pre">in</span> <span class="pre">&quot;gato&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span> <span class="pre">in</span> <span class="pre">&quot;gato&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p></td>
+<td><p>el objeto de la izquierda NO es miembro del objeto de la derecha</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span> <span class="pre">in</span> <span class="pre">&quot;gato&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;g&quot;</span> <span class="pre">in</span> <span class="pre">&quot;gato&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Ya hemos visto el operador <strong><code class="docutils literal notranslate"><span class="pre">in</span></code></strong> siendo usado para verificar si una cadena (de un solo carácter o varios) es una subcadena de otra:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fun&quot;</span> <span class="ow">in</span> <span class="s2">&quot;function&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Solo podemos usar operadores de pertenencia con elementos <em>iterables</em> (es decir, objetos de Python que pueden dividirse en componentes más pequeños, como los caracteres de una cadena). Lo siguiente, por lo tanto, no funcionará, porque un entero no es iterable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sin embargo, podemos usar operadores de pertenencia con otros tipos de ‘contenedores’, como las <em>listas</em>. Discutiremos las listas con mucho más detalle más adelante, pero representan secuencias ordenadas de objetos como cadenas, enteros o una combinación de ellos. Podemos usar <em>in</em> y <em>not in</em> para verificar si un objeto es miembro de una lista:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">mixed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;g&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mixed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejercicio">
+<h4>Ejercicio:<a class="headerlink" href="#ejercicio" title="Permalink to this heading">#</a></h4>
+<p>Escriba un código donde el usuario pueda ingresar texto y se muestre si existen caracteres no alfanumericos (‘=’, ‘?’, ‘#’, ‘$’, ‘%’, ‘&amp;’, ‘!’, ‘&#64;’) en el texto que ingreso. Pista: Utiliza una lista y verifica si los elementos de la lista se encuentran en el texto ingresado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="and-or-y-not">
+<h3>1.3 And, or y not<a class="headerlink" href="#and-or-y-not" title="Permalink to this heading">#</a></h3>
+<p>Finalmente, las operaciones booleanas a menudo se realizan utilizando los <a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#boolean-operations-and-or-not"><strong>operadores booleanos <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> y <code class="docutils literal notranslate"><span class="pre">not</span></code></strong></a>. Dadas dos expresiones booleanas, <strong>bool1</strong> y <strong>bool2</strong>, así es como funcionan:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operación</p></th>
+<th class="head"><p>Función</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>bool1</strong> <code class="docutils literal notranslate"><span class="pre">and</span></code> <strong>bool2</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si tanto <strong>bool1</strong> como <strong>bool2</strong> son <code class="docutils literal notranslate"><span class="pre">True</span></code>, de lo contrario <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">==</span> <span class="pre">5</span> <span class="pre">and</span> <span class="pre">3</span> <span class="pre">&lt;</span> <span class="pre">5</span></code>)</p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">==</span> <span class="pre">5</span> <span class="pre">and</span> <span class="pre">3</span> <span class="pre">&gt;</span> <span class="pre">5</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>bool1</strong> <code class="docutils literal notranslate"><span class="pre">or</span></code> <strong>bool2</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> cuando al menos una de las expresiones booleanas es <code class="docutils literal notranslate"><span class="pre">True</span></code>, de lo contrario <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">==</span> <span class="pre">5</span> <span class="pre">and</span> <span class="pre">3</span> <span class="pre">&gt;</span> <span class="pre">5</span></code>)</p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">!=</span> <span class="pre">5</span> <span class="pre">and</span> <span class="pre">3</span> <span class="pre">&gt;</span> <span class="pre">5</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">not</span></code> <strong>bool1</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si <strong>bool1</strong> es <code class="docutils literal notranslate"><span class="pre">False</span></code>, de lo contrario <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">5</span> <span class="pre">!=</span> <span class="pre">5</span></code>)</p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">5</span> <span class="pre">==</span> <span class="pre">5</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aquí hay unos ejemplos con <strong><code class="docutils literal notranslate"><span class="pre">and</span></code></strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">letters</span> <span class="ow">and</span> <span class="mi">2</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z&quot;</span> <span class="ow">in</span> <span class="n">letters</span> <span class="ow">and</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f&quot;</span> <span class="ow">in</span> <span class="n">letters</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aquí hay unos ejemplos con <strong><code class="docutils literal notranslate"><span class="pre">or</span></code></strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f&#39;</span> <span class="ow">in</span> <span class="n">letters</span> <span class="ow">or</span> <span class="mi">2</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">letters</span> <span class="ow">or</span> <span class="mi">2</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f&#39;</span> <span class="ow">in</span> <span class="n">letters</span> <span class="ow">or</span> <span class="mi">10</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aquí hay unos ejemplos con <strong><code class="docutils literal notranslate"><span class="pre">not</span></code></strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_string</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">a_string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">a_string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="s1">&#39;x&#39;</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="p">(</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="s2">&quot;4&quot;</span> <span class="o">==</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Ejercicio:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>A continuación se presentan algunas características del aimara, arme la expresión booleana necesaria para que al juntarse todas las condiciones descritas, se imprima <strong><code class="docutils literal notranslate"><span class="pre">True</span></code></strong> indicando que se trata del aimara.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Características del aimara</span>
+<span class="n">Aglutinante</span> <span class="o">=</span> <span class="kc">True</span>    <span class="c1">#Las palabras se forman uniendo monemas independientes</span>
+<span class="n">Verbo_ser</span> <span class="o">=</span> <span class="kc">False</span>     <span class="c1">#No existe un verbo equivalente al verbo ser del español</span>
+<span class="n">Direccionales</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1">#Uso de direccionales para indicar si la acción tiene movimiento y su dirección.</span>
+<span class="n">Evidencialidad</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">#Requiere evidencialidad que obliga a marcar en una oración declarativa si el hablante conoce el hecho por conocimiento directo personal o conocimiento indirecto</span>
+
+<span class="n">resultado</span> <span class="o">=</span> <span class="c1">#Completa</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="condicionales-instrucciones-if">
+<h2>2. Condicionales: instrucciones <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#condicionales-instrucciones-if" title="Permalink to this heading">#</a></h2>
+<p>Puede que te preguntes por qué dedicamos bastante tiempo explicando las expresiones booleanas. Una de las razones es que son el elemento principal en probablemente una de las herramientas más utilizadas en Python: las <strong>instrucciones <code class="docutils literal notranslate"><span class="pre">if</span></code></strong>. La siguiente imagen explica qué sucede en una instrucción <code class="docutils literal notranslate"><span class="pre">if</span></code> en Python.</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/cltl/python-for-text-analysis/master/Chapters/images/if_else_statement.jpg" alt="if_else">
+</p>
+<p>Veamos un ejemplo (modifica el valor de <em>number</em> para entender qué está sucediendo aquí):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># Prueba cambiar el valor a 6</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;el número es igual a 5&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;el número es mayor que 4&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;el número es mayor o igual a 5&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;el número es menor que 6&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;el número es menor o igual a 5&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">!=</span> <span class="mi">6</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;el número no es igual a 6&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="decisiones-de-dos-escenarios">
+<h3>2.1 Decisiones de dos escenarios<a class="headerlink" href="#decisiones-de-dos-escenarios" title="Permalink to this heading">#</a></h3>
+<p>Pero, ¿qué pasa si queremos tener opciones para dos escenarios diferentes? Podríamos simplemente usar un montón de instrucciones <code class="docutils literal notranslate"><span class="pre">if</span></code>. Sin embargo, Python tiene una forma más eficiente. Además del <code class="docutils literal notranslate"><span class="pre">if</span></code>, también tenemos la instrucción <strong><code class="docutils literal notranslate"><span class="pre">else</span></code></strong> para decisiones de dos vías (modifica el valor de <code class="docutils literal notranslate"><span class="pre">number</span></code> para entender qué está sucediendo aquí):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Prueba cambiar este valor a 2</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number is higher than 5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora Python siempre ejecuta una de las dos piezas de código. Es como llegar a un cruce en el camino y elegir un camino a seguir.</p>
+</section>
+<section id="decisiones-con-multiples-opciones">
+<h3>2.2 Decisiones con múltiples opciones<a class="headerlink" href="#decisiones-con-multiples-opciones" title="Permalink to this heading">#</a></h3>
+<p>Pero, por supuesto, no tenemos que detenernos ahí. Si tienes múltiples opciones, puedes usar la instrucción <strong><code class="docutils literal notranslate"><span class="pre">elif</span></code></strong>. Para cada bloque <code class="docutils literal notranslate"><span class="pre">if</span></code>, puedes tener múltiples instrucciones <code class="docutils literal notranslate"><span class="pre">elif</span></code> y una instrucción <code class="docutils literal notranslate"><span class="pre">else</span></code>. Ahora conocemos la estructura completa del <strong>constructo <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code></strong>:</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/cltl/python-for-text-analysis/master/Chapters/images/if_elif_else.png" alt="if_elif_else">
+</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">edad</span> <span class="o">=</span> <span class="mi">21</span> <span class="c1">#Prueba cambiar la edad para probar todas las condiciones</span>
+<span class="k">if</span> <span class="n">edad</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Todavía eres un niño!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">edad</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Eres un adolescente!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">edad</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Eres bastante joven!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Vaya, eres mayor!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Primero se evaluará la instrucción <code class="docutils literal notranslate"><span class="pre">if</span></code>. Solo si esa instrucción resulta ser <code class="docutils literal notranslate"><span class="pre">False</span></code>, el ordenador procederá a evaluar las instrucciones <code class="docutils literal notranslate"><span class="pre">elif</span></code>. Si las instrucciones <code class="docutils literal notranslate"><span class="pre">elif</span></code> resultan ser <code class="docutils literal notranslate"><span class="pre">False</span></code> a su vez, la máquina procederá a ejecutar las líneas de código asociadas con la instrucción <code class="docutils literal notranslate"><span class="pre">else</span></code>. ¡Puedes pensar en esta estructura de codificación como un árbol de decisiones! Recuerda: si en algún punto del árbol, tu máquina se encuentra con una expresión lógica que es <code class="docutils literal notranslate"><span class="pre">True</span></code>, ¡no se molestará en evaluar las opciones restantes! Ten en cuenta que las instrucciones se evalúan en el orden en que aparecen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">edad</span> <span class="o">=</span> <span class="mi">21</span> <span class="c1">#Prueba cambiar la edad para probar todas las condiciones</span>
+<span class="k">if</span> <span class="n">edad</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Todavía eres un niño!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">edad</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Eres un adolescente!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">edad</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Eres bastante joven!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Vaya, eres mayor!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Recuerda:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if-if</span></code>: tu código revisará todas las declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if-elif</span></code>: si una condición resulta en <code class="docutils literal notranslate"><span class="pre">True</span></code>, no verificará las otras condiciones</p></li>
+</ul>
+<p>A menos que <em>necesites</em> verificar todas las condiciones, usar <code class="docutils literal notranslate"><span class="pre">if-elif</span></code> generalmente es preferible porque es <em>más eficiente</em>.</p>
+</section>
+</section>
+<section id="indentacion">
+<h2>3. Indentación<a class="headerlink" href="#indentacion" title="Permalink to this heading">#</a></h2>
+<p>Echemos otro vistazo al ejemplo de arriba (hemos agregado números de línea):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+<span class="mf">2.</span>     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="mf">3.</span> <span class="k">else</span><span class="p">:</span>
+<span class="mf">4.</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number es mayor a 5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Es posible que hayas notado que la línea 2 comienza con 4 espacios. ¡Esto es intencional! La indentación le indica a Python cuándo necesita ejecutar ese fragmento de código. Cuando la expresión booleana en la línea 1 es <code class="docutils literal notranslate"><span class="pre">True</span></code>, Python ejecuta el código desde la siguiente línea que comienza con cuatro espacios o con un tabulador (una sangría) a la derecha. Esto se llama <strong>indentación</strong>. Todas las declaraciones con la misma distancia hacia la derecha pertenecen al mismo ‘bloque’ de código.</p>
+<p>A diferencia de otros lenguajes, Python no utiliza llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code> para marcar el inicio y el final de fragmentos de código, como las declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>. El único delimitador es dos puntos (:) y la indentación del código. Tanto cuatro espacios como tabuladores pueden utilizarse para la indentación. Esta indentación debe usarse de manera consistente en todo tu código. Por ahora, no tienes que preocuparte por esto, ya que un tabulador se convierte automáticamente en cuatro espacios en los cuadernos (notebooks).</p>
+<p>Observa el código a continuación. Vemos que el bloque con sangría no se ejecuta, pero sí se ejecutan las líneas de código sin sangría. ¡Ahora cambia el valor de la variable <code class="docutils literal notranslate"><span class="pre">persona</span></code>! ¡La conversación debería ser un poco más larga ahora!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">persona</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Hola!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">persona</span> <span class="o">==</span> <span class="s2">&quot;Alice&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿Cómo estás hoy?&quot;</span><span class="p">)</span>                      <span class="c1"># esto está indentado</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿Quieres acompañarme a almorzar?&quot;</span><span class="p">)</span>      <span class="c1"># esto está indentado</span>
+<span class="k">elif</span> <span class="n">persona</span> <span class="o">==</span> <span class="s2">&quot;Lisa&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Hablemos en otro momento!&quot;</span><span class="p">)</span>            <span class="c1"># esto está indentado</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Adiós!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="anidamiento">
+<h3>3.1 Anidamiento<a class="headerlink" href="#anidamiento" title="Permalink to this heading">#</a></h3>
+<p>Hemos visto que todas las declaraciones con la misma distancia hacia la derecha pertenecen al mismo bloque de código, es decir, las declaraciones dentro de un bloque se alinean verticalmente. El bloque termina en una línea con menos sangría o al final del archivo.
+Los bloques también pueden contener otros bloques; de esta manera, obtenemos una estructura de bloques anidados. El bloque que debe estar más profundamente <strong>anidado</strong> simplemente se sangra más a la derecha:</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/cltl/python-for-text-analysis/master/Chapters/images/blocks.png" alt="Blocks">
+</p>
+<p>Puede haber una situación en la que quieras verificar otra condición después de que una condición se resuelva a <code class="docutils literal notranslate"><span class="pre">True</span></code>. En tal situación, puedes usar la estructura <code class="docutils literal notranslate"><span class="pre">if</span></code> anidada. Como puedes ver si ejecutas el código a continuación, la segunda declaración <code class="docutils literal notranslate"><span class="pre">if</span></code> solo se ejecuta si la primera declaración <code class="docutils literal notranslate"><span class="pre">if</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code>. Intenta cambiar el valor de x para ver qué hace el código.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Ingresa un número: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cero&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número positivo&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número negativo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this heading">#</a></h2>
+<section id="ejercicio-1">
+<h3>Ejercicio 1:<a class="headerlink" href="#ejercicio-1" title="Permalink to this heading">#</a></h3>
+<p>Escribe un pequeño programa que defina una variable <code class="docutils literal notranslate"><span class="pre">weight</span></code>. Si el peso es &gt; 50 libras, imprime “Hay un cargo de $25 por equipaje tan pesado.” Si no lo es, imprime: “Gracias por tu compra.” Si el peso es exactamente 50, imprime: “¡Uf! ¡El peso es justo!”. ¡Cambia el valor de weight varias veces para comprobar si tu código funciona! ¡Haz uso de los operadores lógicos y la estructura if-elif-else!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Tu código aqui</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-2">
+<h3>Ejercicio 2:<a class="headerlink" href="#ejercicio-2" title="Permalink to this heading">#</a></h3>
+<p>¿Qué está mal en el siguiente código? Corrige el error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="k">if</span> <span class="n">my_string</span> <span class="o">==</span> <span class="s2">&quot;hello&quot;</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Y aquí?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="k">if</span> <span class="n">my_string</span> <span class="o">==</span> <span class="s2">&quot;hello&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-4">
+<h3>Ejercicio 4:<a class="headerlink" href="#ejercicio-4" title="Permalink to this heading">#</a></h3>
+<p>¿Puedes reescribir el código a continuación sin anidar? Pista: utiliza la estructura if-elif-else.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Ingresa un número: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cero&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número positivo&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número negativo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ejercicio-5">
+<h2>Ejercicio 5:<a class="headerlink" href="#ejercicio-5" title="Permalink to this heading">#</a></h2>
+<p>Escriba un código que analice en un texto si las palabras “mochica”, “wari” o “inca” estan presentes y presentarle al usuario un mensaje clasificando la cultura discutida en el texto. Cuenta con los 3 textos incluidos debajo para hacer sus pruebas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">texto1</span> <span class="o">=</span> <span class="s2">&quot;Los mochicas fueron una antigua civilización precolombina que floreció en la costa norte de Perú entre los años 100 y 800 d.C. Conocidos por su extraordinario desarrollo en la cerámica, la arquitectura y su habilidad en la metalurgia, los mochicas dejaron un legado cultural notable en la región.&quot;</span>
+<span class="n">texto2</span> <span class="o">=</span> <span class="s2">&quot;La arquitectura wari se destacó por la construcción de grandes complejos urbanos y administrativos, con edificaciones monumentales y una planificación urbana avanzada. Además, su arte cerámico y textil mostraba una notable habilidad técnica y creativa.&quot;</span>
+<span class="n">texto3</span> <span class="o">=</span> <span class="s2">&quot;La arquitectura incaica es famosa por sus monumentos impresionantes, como Machu Picchu, una ciudadela ubicada en lo alto de los Andes. A pesar de su caída, la cultura inca dejó un legado duradero en la región, con su arte, arquitectura y tradiciones que perduran en la cultura peruana y andina hasta el día de hoy.&quot;</span>
+
+<span class="c1">#Tu código aqui</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejercicio-6">
+<h3>Ejercicio 6:<a class="headerlink" href="#ejercicio-6" title="Permalink to this heading">#</a></h3>
+<p>Un amigo quiere tu consejo sobre cuántas naranjas debería comprar. Escribe un programa que le aconseje comprar 24 naranjas si el precio es menor a 1.50 EUR por kg, 12 naranjas si el precio está entre 1.50 EUR y 3 EUR, y solo 1 naranja si el precio es mayor a 3 EUR. Pero también dile que solo debe comprarlas si las naranjas están frescas; de lo contrario, no debe comprar ninguna. Utiliza el anidamiento y la estructura if-elif-else</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Dia_3_Trabajando_con_Datos_parte_II.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#al-final-de-este-capitulo-seras-capaz-de">Al final de este capítulo, serás capaz de:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expresiones-booleanas">1. Expresiones booleanas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Expresiones booleanas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-comparativos">1.1 Operadores comparativos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-de-pertenencia">1.2 Operadores de pertenencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-or-y-not">1.3 And, or y not</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionales-instrucciones-if">2. Condicionales: instrucciones <code class="docutils literal notranslate"><span class="pre">if</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decisiones-de-dos-escenarios">2.1 Decisiones de dos escenarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decisiones-con-multiples-opciones">2.2 Decisiones con múltiples opciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indentacion">3. Indentación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anidamiento">3.1 Anidamiento</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-4">Ejercicio 4:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-5">Ejercicio 5:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-6">Ejercicio 6:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By H-Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

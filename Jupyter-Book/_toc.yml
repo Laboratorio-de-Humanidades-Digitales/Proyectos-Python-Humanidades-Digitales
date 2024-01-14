@@ -1,13 +1,15 @@
-# _toc.yml
-- file: intro
-- part: Introducción a Python
-  chapters:
-  - file: Notebooks/Dia_2_Trabajando_con_Datos_parte_I
-  # - file: Notebooks/notebook2
-- part: Fundamentos de Análisis de Datos
-  chapters:
-  - file: Notebooks/Dia_3_Trabajando_con_Datos_parte_II
-  # - file: Notebooks/notebook2
-- part: Tema 1
-  chapters:
-  - file: Notebooks/Dia_2_Trabajando_con_Datos_parte_I
+format: jb-book
+root: index
+title: Fundamentos de Python para Humanidades Digitales
+parts: 
+  - caption: Introducción a Python
+    chapters:
+    - file: Notebooks/Dia_2_Trabajando_con_Datos_parte_I
+
+  - caption: Fundamentos de Análisis de Datos
+    chapters:
+    - file: Notebooks/Dia_3_Trabajando_con_Datos_parte_II
+
+  - caption: Tema 1
+    chapters:
+    - file: Notebooks/Dia_4_Trabajando_con_Datos_parte_III
