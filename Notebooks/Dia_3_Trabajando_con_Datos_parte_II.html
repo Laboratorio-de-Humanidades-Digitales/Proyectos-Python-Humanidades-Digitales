@@ -1,0 +1,1247 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings) &#8212; Proyectos de Python en Humanidades Digitales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Dia_3_Trabajando_con_Datos_parte_II';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Día 4 - Trabajando con operadores lógicos y expresiones condicionales" href="Dia_4_Trabajando_con_Datos_parte_III.html" />
+    <link rel="prev" title="Clase 2: Trabajando con Datos en Python" href="Dia_2_Trabajando_con_Datos_parte_I.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/H-Lab-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/H-Lab-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Advanced Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Dia_2_Trabajando_con_Datos_parte_I.html">Clase 2: Trabajando con Datos en Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Análisis de Datos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Dia_4_Trabajando_con_Datos_parte_III.html">Día 4 - Trabajando con operadores lógicos y expresiones condicionales</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/main?urlpath=tree/Jupyter-Book/Notebooks/Dia_3_Trabajando_con_Datos_parte_II.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/blob/main/Jupyter-Book/Notebooks/Dia_3_Trabajando_con_Datos_parte_II.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/issues/new?title=Issue%20on%20page%20%2FNotebooks/Dia_3_Trabajando_con_Datos_parte_II.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/Dia_3_Trabajando_con_Datos_parte_II.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#al-final-de-este-capitulo-seras-capaz-de">Al final de este capítulo, serás capaz de:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#si-quieres-aprender-mas-sobre-estos-temas-los-siguientes-enlaces-pueden-ser-utiles">Si quieres aprender más sobre estos temas, los siguientes enlaces pueden ser útiles:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos-basicos-en-python">1. Tipos de Datos Básicos en Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspeccion-de-tipos-de-datos-la-funcion-type">Inspección de tipos de datos: La función <code class="docutils literal notranslate"><span class="pre">type()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1-1">Ejercicio 1.1</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-puedes-hacer-con-un-objeto-las-posibilidades-segun-su-tipo">1.1 ¿Qué puedes hacer con un objeto? Las posibilidades según su tipo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nota-sobre-la-lectura-e-interpretacion-de-errores">Nota sobre la lectura e interpretación de errores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-mismo-simbolo-puede-hacer-cosas-diferentes-dependiendo-del-tipo-de-objeto-con-el-que-se-combine">El mismo símbolo puede hacer cosas diferentes dependiendo del tipo de objeto con el que se combine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-de-tipos-por-ejemplo-convertir-enteros-en-cadenas-de-texto">1.2 Conversión de Tipos (por ejemplo, convertir enteros en cadenas de texto)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1-2">Ejercicio 1.2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeros-enteros-y-flotantes">2. Números: Enteros y Flotantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-matematicos">2.1 Operadores Matemáticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio 2.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-3">Ejercicio 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-opcional">Ejercicio Opcional</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definiendo-y-representando-cadenas-de-texto">3. Definiendo y representando cadenas de texto</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imprimiendo-y-concatenando-cadenas-de-texto">3.1. Imprimiendo y concatenando cadenas de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-y-metodos-para-cadenas-de-texto">3.2. Operadores y métodos para cadenas de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio 2</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dia-3-tipos-de-datos-basicos-enteros-flotantes-y-strings">
+<h1>Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)<a class="headerlink" href="#dia-3-tipos-de-datos-basicos-enteros-flotantes-y-strings" title="Permalink to this heading">#</a></h1>
+<p>En el capítulo anterior, hiciste tu primera incursión en la programación con Python. Ya hemos visto algunos tipos de datos básicos: cadenas de texto y valores numéricos. En este capítulo, profundizaremos en el concepto de tipos de datos y nos centraremos en los numéricos: enteros y flotantes.</p>
+<section id="al-final-de-este-capitulo-seras-capaz-de">
+<h2>Al final de este capítulo, serás capaz de:<a class="headerlink" href="#al-final-de-este-capitulo-seras-capaz-de" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>entender el concepto de <em>tipos de datos</em></p></li>
+<li><p>verificar y convertir el tipo de un objeto</p></li>
+<li><p>comprender y trabajar con dos tipos numéricos: <em>enteros</em> y <em>flotantes</em></p></li>
+<li><p>definir <em>strings</em> y entender sus <em>representaciones internas</em></p></li>
+<li><p>entender a los <em>strings</em> como secuencias de caracteres</p></li>
+<li><p>utilizar <em>operadores</em> para manipular <em>strings</em></p></li>
+<li><p>utilizar <em>métodos</em> o <em>comandos</em> para manipular <em>strings</em></p></li>
+</ul>
+</section>
+<section id="si-quieres-aprender-mas-sobre-estos-temas-los-siguientes-enlaces-pueden-ser-utiles">
+<h2>Si quieres aprender más sobre estos temas, los siguientes enlaces pueden ser útiles:<a class="headerlink" href="#si-quieres-aprender-mas-sobre-estos-temas-los-siguientes-enlaces-pueden-ser-utiles" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Documentación: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Tipos Incorporados de Python</a></p></li>
+<li><p>Documentation: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">Comandos con Strings</a></p></li>
+<li><p>Video: <a class="reference external" href="https://www.youtube.com/watch?v=OH86oLzVzzw">Variables y Tipos en Python</a></p></li>
+<li><p>Video: <a class="reference external" href="https://www.youtube.com/watch?v=D48iCw3WWpI&amp;t=66s">Enteros, flotantes y matemáticas</a></p></li>
+<li><p>Video: <a class="reference external" href="https://www.youtube.com/watch?v=khKv-8q7YmY">Trabajando con Datos Numéricos</a></p></li>
+<li><p>Explicación: <a class="reference external" href="https://www.tutorialspoint.com/python/python_strings.htm">Strings</a></p></li>
+<li><p>Video: <a class="reference external" href="https://www.youtube.com/watch?v=L2IUSArpG98">Strings</a></p></li>
+<li><p>Video: <a class="reference external" href="https://www.youtube.com/watch?v=lMQRjpgJslI">String Indexing and Slicing</a></p></li>
+</ul>
+</section>
+<section id="tipos-de-datos-basicos-en-python">
+<h2>1. Tipos de Datos Básicos en Python<a class="headerlink" href="#tipos-de-datos-basicos-en-python" title="Permalink to this heading">#</a></h2>
+<p>En el mundo de Python cada dato es tratado como un objeto único. Esto le da una flexibilidad increíble para manipular y utilizar datos de diferentes formas. En Python, nos encontramos con una variedad de <strong>tipos de objetos básicos</strong> que son los pilares de la programación:</p>
+<ul class="simple">
+<li><p><strong>Cadenas (Strings)</strong>: manejan texto, usadas para crear y manejar palabras o frases.</p></li>
+<li><p><strong>Enteros (Integers)</strong>: los números enteros, sin decimales, ideales para contar o realizar operaciones matemáticas básicas.</p></li>
+<li><p><strong>Flotantes (Floats)</strong>: manejan números con decimales para cálculos más detallados.</p></li>
+<li><p><strong>Listas (Lists)</strong>: son como trenes de datos, una secuencia ordenada donde puedes agregar, eliminar o modificar elementos.</p></li>
+<li><p><strong>Booleanos (Booleans)</strong>: representan los valores de <code class="docutils literal notranslate"><span class="pre">True</span></code> (Verdadero) o <code class="docutils literal notranslate"><span class="pre">False</span></code> (Falso), fundamentales en la toma de decisiones lógicas.</p></li>
+<li><p><strong>Funciones</strong>: son las herramientas para transformar, crear o manipular objetos, basadas en los datos que reciben.</p></li>
+</ul>
+<p>A lo largo del curso, exploraremos cada uno de estos tipos. Comenzaremos con una inmersión en el mundo de las <strong>cadenas, enteros, flotantes y booleanos</strong> y más adelante, desvelaremos los misterios de los tipos restantes. Para una guía más técnica, la documentación oficial de Python sobre estos tipos está disponible <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">aquí</a>.</p>
+<p>Ahora, démosle un vistazo a un ejemplo de cada tipo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_string</span>       <span class="o">=</span> <span class="s2">&quot;abecedario&quot;</span>
+<span class="n">an_integer</span>     <span class="o">=</span> <span class="mi">4</span>
+<span class="n">a_float</span>        <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">a_list</span>         <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">a_function</span>     <span class="o">=</span> <span class="nb">print</span>
+<span class="n">a_bool</span>         <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="inspeccion-de-tipos-de-datos-la-funcion-type">
+<h3>Inspección de tipos de datos: La función <code class="docutils literal notranslate"><span class="pre">type()</span></code><a class="headerlink" href="#inspeccion-de-tipos-de-datos-la-funcion-type" title="Permalink to this heading">#</a></h3>
+<p>Podemos usar la función <code class="docutils literal notranslate"><span class="pre">type()</span></code> para inspeccionar el tipo de un objeto. Esta función nos devuelve el tipo de un objeto como una cadena de texto. Por ejemplo, si queremos saber el tipo de un objeto llamado <code class="docutils literal notranslate"><span class="pre">x</span></code>, podemos usar la función <code class="docutils literal notranslate"><span class="pre">type()</span></code> de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    x = 2    
+    print(type(x)) # recuerda que usamos print() para ver el resultado
+    &gt;&gt;&gt; &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+<p>Eso nos dice que <code class="docutils literal notranslate"><span class="pre">x</span></code> es un objeto de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> (entero)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abecedario
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Qué tipo de dato es “abecedario”?</p>
+<p>Vamos a practicar un poco</p>
+<section id="ejercicio-1-1">
+<h4>Ejercicio 1.1<a class="headerlink" href="#ejercicio-1-1" title="Permalink to this heading">#</a></h4>
+<p>En la celda de abajo imprime cada uno de los datos que creamos 2 celdas de código atrás, y además imprime el tipo de dato que es cada uno de ellos.</p>
+<p>Usa el # para comentar cada línea de código y explicar qué tipo de dato es cada uno.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="que-puedes-hacer-con-un-objeto-las-posibilidades-segun-su-tipo">
+<h3>1.1 ¿Qué puedes hacer con un objeto? Las posibilidades según su tipo<a class="headerlink" href="#que-puedes-hacer-con-un-objeto-las-posibilidades-segun-su-tipo" title="Permalink to this heading">#</a></h3>
+<p>En este punto es importante entender que cada tipo de objeto en Python ofrece ciertas <strong>posibilidades</strong> o acciones asociadas que se pueden realizar con ellos. Por ejemplo, cuando trabajamos con tipos numéricos (enteros, flotantes), el intérprete de Python sabe que se pueden realizar operaciones matemáticas con ese objeto. Sin embargo, estas operaciones no son aplicables a las cadenas de texto, porque no tiene sentido, por ejemplo, calcular la raíz cuadrada de la cadena “¡Hola, mundo!”.</p>
+<p>Es similar a lo que sucede en la vida real con los vehículos y la comida. Todo lo que se clasifica como <em>vehículo</em> puede usarse para desplazarse y posiblemente transportar bienes. Pero no puedes comer un vehículo. Todo lo que es <em>comida</em> es comestible, pero resulta bastante difícil utilizar comida para el transporte (imagina intentar ir a casa en una zanahoria).</p>
+<p>Así que, dependiendo del tipo, Python interpreta los objetos de manera diferente y puedes hacer distintas cosas con ellos. Por ejemplo, Python lanzará un error de tipo <strong><code class="docutils literal notranslate"><span class="pre">TypeError</span></code></strong> si intentas dividir una cadena de texto por otra:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;10&quot;</span> <span class="o">-</span> <span class="s2">&quot;4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nota-sobre-la-lectura-e-interpretacion-de-errores">
+<h3>Nota sobre la lectura e interpretación de errores<a class="headerlink" href="#nota-sobre-la-lectura-e-interpretacion-de-errores" title="Permalink to this heading">#</a></h3>
+<p>Aunque puede resultar algo molesto cuando tu código genera un error, trata de verlo como un <strong>mensaje útil que te informa por qué algo no funciona</strong>. Considera el mensaje de error anterior. Tiene los siguientes componentes:</p>
+<ul class="simple">
+<li><p>Un nombre: TypeError</p></li>
+<li><p>Un indicador de la línea en la que tu código tiene un problema: —&gt; 1</p></li>
+<li><p>Un mensaje: tipo(s) de operando no soportado(s) para /: ‘str’ y ‘str’</p></li>
+</ul>
+<p>¿Qué nos dice esto?</p>
+<ul class="simple">
+<li><p>Algo está mal con el tipo del objeto y lo que estamos intentando hacer.</p></li>
+<li><p>¿Dónde está el error? Aquí es fácil - en la línea 1 (nuestro código solo tiene una línea, pero imagina lo útil que es esta información si estás tratando con 50 líneas de código…)</p></li>
+<li><p>¿Cuál es el problema? En la línea 1, estamos intentando hacer algo con cadenas de texto. El mensaje nos dice que ‘/’ (es decir, el operador de división) es un ‘operando no soportado’ para objetos del tipo cadena. En términos más sencillos: Python no sabe qué hacer cuando combinamos cadenas de texto con el operador de división. La razón de esto es que las cadenas no se pueden usar en divisiones.</p></li>
+</ul>
+<p>Esto nos da suficiente información para averiguar qué está mal. Aquí, realmente no hay nada que podamos arreglar - simplemente aprendemos que no es posible dividir cadenas de texto. En otros casos, el mensaje de error también puede contener información sobre cómo arreglar algo en el código.</p>
+</section>
+<section id="el-mismo-simbolo-puede-hacer-cosas-diferentes-dependiendo-del-tipo-de-objeto-con-el-que-se-combine">
+<h3>El mismo símbolo puede hacer cosas diferentes dependiendo del tipo de objeto con el que se combine<a class="headerlink" href="#el-mismo-simbolo-puede-hacer-cosas-diferentes-dependiendo-del-tipo-de-objeto-con-el-que-se-combine" title="Permalink to this heading">#</a></h3>
+<p>En ocasiones, los mismos símbolos pueden actuar como diferentes <strong>operadores</strong> dependiendo del tipo de datos con los que se utilizan. Compara los siguientes dos bloques de código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;yo soy &quot;</span> <span class="o">+</span> <span class="s2">&quot;tu padre&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos ver, el símbolo “+” significa “adición” si lo usamos con enteros y “concatenación” (juntar) si lo usamos con cadenas de texto. Si intentamos combinar ambos tipos, Python indicará que la operación que estás intentando realizar no tiene sentido:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="s2">&quot;tu padre&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conversion-de-tipos-por-ejemplo-convertir-enteros-en-cadenas-de-texto">
+<h3>1.2 Conversión de Tipos (por ejemplo, convertir enteros en cadenas de texto)<a class="headerlink" href="#conversion-de-tipos-por-ejemplo-convertir-enteros-en-cadenas-de-texto" title="Permalink to this heading">#</a></h3>
+<p>A veces tiene sentido convertir un tipo de dato en otro. A esto se le llama <strong>casting</strong>. Por ejemplo, podemos imaginar un caso así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nos encontramos nuevamente con un <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> que indica que no podemos combinar una cadena de texto y un entero. Afortunadamente, podemos convertir la cadena en un entero aplicando <strong><code class="docutils literal notranslate"><span class="pre">int()</span></code></strong> a la variable <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;5&quot;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>De manera similar, podemos convertir un entero en una cadena de texto usando <strong><code class="docutils literal notranslate"><span class="pre">str()</span></code></strong>, tras lo cual se puede concatenar con otra cadena:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s2">&quot; es mi número favorito!&quot;</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hay muchas otros tipos de conversiones, pero no todas tienen sentido o si? Por ejemplo, que pasaría si quisieras convertir a entero la cadena “Hola mundo”?</p>
+<section id="ejercicio-1-2">
+<h4>Ejercicio 1.2<a class="headerlink" href="#ejercicio-1-2" title="Permalink to this heading">#</a></h4>
+<p>Crea una variable llamado mi_texto y asígnale el valor “Hola mundo”. Luego convierte mi_texto a entero y observa qué sucede.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Opcional: Si quisiera si o si sumar mi texto a un entero, ¿qué debería hacer?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="numeros-enteros-y-flotantes">
+<h2>2. Números: Enteros y Flotantes<a class="headerlink" href="#numeros-enteros-y-flotantes" title="Permalink to this heading">#</a></h2>
+<p>A lo largo de este curso, discutiremos todos los tipos de datos. Pero por ahora, vamos a examinar más de cerca los valores numéricos que puedes utilizar en Python: los enteros y los flotantes.</p>
+<p>Hasta ahora, solo hemos asignado números como 2 o 46 a nuestras variables. Estos números enteros se llaman <strong>enteros (integers)</strong> en programación, porque no contienen dígitos ‘después del punto’. Los números que sí tienen dígitos después del punto (por ejemplo, 62.27 o 11.20) se denominan ‘números de punto flotante’ en programación, o simplemente <strong>flotantes (floats)</strong>. Cabe destacar que Python utiliza puntos en los flotantes, mientras que algunos idiomas europeos utilizan una coma. Tanto los enteros como los flotantes pueden ser números positivos (por ejemplo, 30 o 41.36) así como números negativos (por ejemplo, -30 o -41.36). Puedes asignar flotantes a variables igual de fácilmente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decimal</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span>
+<span class="n">decimal_negativo</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decimal_negativo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La diferencia entre enteros y flotantes es, por supuesto, importante para las divisiones, donde a menudo (automáticamente) terminas con flotantes. Esto se conoce como conversión de tipo implícita. En algunos casos, esto puede llevar a problemas, por ejemplo, si el resto de tu código espera enteros, pero de repente tiene que lidiar con flotantes (aunque no tienes que preocuparte por ello por ahora).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Probemos que sucede en los siguientes casos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">2.4</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">2.7</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">2.7</span><span class="p">))</span>
+</pre></div>
+</div>
+<section id="ejercicio">
+<h3>Ejercicio:<a class="headerlink" href="#ejercicio" title="Permalink to this heading">#</a></h3>
+<p>¿El siguiente código te da el resultado que esperabas? ¿Cuál es el tipo de la variable <code class="docutils literal notranslate"><span class="pre">resultado</span></code>? ¿Qué necesitarías modificar si solo quisieras realizar un cálculo?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operadores-matematicos">
+<h3>2.1 Operadores Matemáticos<a class="headerlink" href="#operadores-matematicos" title="Permalink to this heading">#</a></h3>
+<p>Hay varios <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html"><strong>operadores matemáticos</strong></a> definidos tanto para enteros como para flotantes (se encuentran bajo ‘Tipos Numéricos’), algunos de los cuales ya hemos visto anteriormente:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operación</p></th>
+<th class="head"><p>Resultado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></td>
+<td><p>suma de x e y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
+<td><p>diferencia de x e y</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></td>
+<td><p>producto de x e y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></td>
+<td><p>división de x e y</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">y</span></code></p></td>
+<td><p>división entera de x e y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p></td>
+<td><p>resto de x / y</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code></p></td>
+<td><p>x elevado a la potencia y</p></td>
+</tr>
+</tbody>
+</table>
+<p>Sin duda recordarás de tus clases de matemáticas en la escuela secundaria que existe algo llamado <strong>jerarquía</strong>, lo que significa que la multiplicación, por ejemplo, siempre se ejecutará antes que la resta. En Python puedes establecer explícitamente el orden en el que se ejecutan las operaciones aritméticas, utilizando paréntesis.</p>
+<p>Para ello, compararemos los siguientes dos bloques de código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">numero_1</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="n">numero_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="n">numero_3</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">numero_1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numero_2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numero_3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escribe el código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Utilizando los operadores que hemos aprendido anteriormente, podemos cambiar las variables en nuestro código tantas veces como queramos. Podemos asignar nuevos valores a las variables antiguas, justo como podemos poner cosas nuevas o adicionales en las cajas que ya teníamos.</p>
+</section>
+</section>
+<section id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this heading">#</a></h2>
+<section id="ejercicio-1">
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Que parte del siguiente código es redundante?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Imprime los tipos de datos de las siguientes variables:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var1</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">var2</span> <span class="o">=</span> <span class="mf">3.1416</span>
+<span class="n">var3</span> <span class="o">=</span> <span class="s2">&quot;Hola mundo&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this heading">#</a></h3>
+<p>Las siguientes celdas de código contienen errores. Encuentra los errores y corrígelos para que el código funcione.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;3&quot;</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">numero</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">Numero</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h4>Ejercicio 2.<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>Crea una variable para representar la cantidad de palabras en una oración y otra variable para representar la cantidad de caracteres en esa misma oración. Ambos valores deben ser ingresados por el usuario usando la función <code class="docutils literal notranslate"><span class="pre">input()</span></code> y el casting apropiado.</p>
+<ol class="arabic simple">
+<li><p>Calcula el promedio de caracteres por palabra dividiendo la cantidad de caracteres entre la cantidad de palabras.</p></li>
+<li><p>Verifica que el resultado sea un número de punto flotante</p></li>
+<li><p>A continuación, convierte el promedio de caracteres a una cadena de texto y verifica que sea una cadena de texto.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-3">
+<h4>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this heading">#</a></h4>
+<p>En el campo de las Humanidades Digitales, es común trabajar en proyectos de digitalización de documentos históricos. Para evaluar el avance de un proyecto, es importante calcular el porcentaje de documentos ya digitalizados.</p>
+<p>En este ejercicio, vamos a crear un programa que solicite al usuario ingresar la cantidad total de documentos en el proyecto y la cantidad de documentos ya digitalizados. Luego, el programa calculará y mostrará el porcentaje de avance.</p>
+<ol class="arabic simple">
+<li><p>Solicitar al usuario la cantidad total de documentos en el proyecto</p></li>
+<li><p>Solicitar al usuario la cantidad de documentos ya digitalizados</p></li>
+<li><p>Calcular el porcentaje de avance</p></li>
+<li><p>Mostrar el resultado al usuario con un mensaje que incluya el porcentaje de avance</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-opcional">
+<h4>Ejercicio Opcional<a class="headerlink" href="#ejercicio-opcional" title="Permalink to this heading">#</a></h4>
+<p>En el campo de las Humanidades Digitales, es común trabajar en proyectos de digitalización de documentos históricos. Para evaluar el avance de un proyecto, es importante calcular el tiempo estimado para completar la digitalización.</p>
+<p>En este ejercicio, vamos a crear un programa que solicite al usuario ingresar la cantidad total de documentos en el proyecto y la cantidad de documentos ya digitalizados. Luego, el programa calculará y mostrará el tiempo estimado para completar la digitalización en días y semanas.</p>
+<ol class="arabic simple">
+<li><p>Solicitar al usuario la cantidad total de documentos en el proyecto.</p></li>
+<li><p>Solicitar al usuario la cantidad de documentos ya digitalizados.</p></li>
+<li><p>Calcular la cantidad de documentos restantes para completar la digitalización.</p></li>
+<li><p>Calcular el tiempo estimado en días y semanas para completar la digitalización, asumiendo que se digitaliza un documento por día.</p></li>
+<li><p>Mostrar el resultado al usuario con un mensaje que incluya la cantidad de días y semanas estimadas para completar la digitalización.</p></li>
+</ol>
+<p>Recuerda utilizar la división entera (<code class="docutils literal notranslate"><span class="pre">//</span></code>) para calcular la cantidad de semanas y el resto (<code class="docutils literal notranslate"><span class="pre">%</span></code>) para calcular la cantidad de días adicionales.</p>
+<details>
+<summary>Haz clic para ver la solución</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># Solicitar al usuario la cantidad total de documentos en el proyecto.</span>
+<span class="n">total_documentos</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Ingrese la cantidad total de documentos en el proyecto: &quot;</span><span class="p">))</span>
+
+<span class="c1"># Solicitar al usuario la cantidad de documentos ya digitalizados.</span>
+<span class="n">documentos_digitalizados</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Ingrese la cantidad de documentos ya digitalizados: &quot;</span><span class="p">))</span>
+
+<span class="c1"># Calcular la cantidad de documentos restantes para completar la digitalización.</span>
+<span class="n">documentos_restantes</span> <span class="o">=</span> <span class="n">total_documentos</span> <span class="o">-</span> <span class="n">documentos_digitalizados</span>
+
+<span class="c1"># Calcular el tiempo estimado en días y semanas para completar la digitalización, asumiendo que se digitaliza un documento por día.</span>
+<span class="n">dias</span> <span class="o">=</span> <span class="n">documentos_restantes</span>
+<span class="n">semanas</span> <span class="o">=</span> <span class="n">dias</span> <span class="o">//</span> <span class="mi">7</span>
+<span class="n">dias</span> <span class="o">=</span> <span class="n">dias</span> <span class="o">%</span> <span class="mi">7</span>
+
+<span class="c1"># Mostrar el resultado al usuario con un mensaje que incluya la cantidad de días y semanas estimadas para completar la digitalización.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Faltan&quot;</span><span class="p">,</span> <span class="n">semanas</span><span class="p">,</span> <span class="s2">&quot;semanas y&quot;</span><span class="p">,</span> <span class="n">dias</span><span class="p">,</span> <span class="s2">&quot;días para completar la digitalización.&quot;</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="definiendo-y-representando-cadenas-de-texto">
+<h2>3. Definiendo y representando cadenas de texto<a class="headerlink" href="#definiendo-y-representando-cadenas-de-texto" title="Permalink to this heading">#</a></h2>
+<p>Un <strong>string</strong> o cadena de texto es una secuencia de letras/caracteres que juntos forman un todo (por ejemplo, una palabra, una oración o un texto completo). En Python, una cadena es un tipo de objeto cuyo valor está encerrado entre comillas simples o dobles. Definamos algunas de ellas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aquí hay algunos strings</span>
+<span class="n">string_1</span> <span class="o">=</span> <span class="s2">&quot;Hasta la vista&quot;</span>
+<span class="n">string_2</span> <span class="o">=</span> <span class="s2">&quot;baby&quot;</span>
+<span class="n">string_3</span> <span class="o">=</span> <span class="s2">&quot;🤯🫣&quot;</span>
+<span class="n">string_4</span> <span class="o">=</span> <span class="s2">&quot;123&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">string_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">string_4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>No hay diferencia en declarar una cadena con comillas simples o dobles. Sin embargo, si tu cadena contiene un símbolo de comilla, puede llevar a errores si intentas encerrarla con las mismas comillas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecuta esta celda</span>
+<span class="n">restaurante</span> <span class="o">=</span> <span class="s1">&#39;McDonald&#39;</span><span class="n">s</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el ejemplo anterior, el error indica que hay algo mal con la letra <em>s</em>. Esto se debe a que la comilla simple cierra la cadena que comenzamos, y cualquier cosa después de eso es inesperado.
+Para resolver esto, podemos encerrar la cadena en comillas dobles, de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restaurante</span> <span class="o">=</span> <span class="s2">&quot;McDonald&#39;s&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">restaurante</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>O podemos usar un caracter especial llamado <strong>caracter de escape</strong>. Un caracter de escape es un caracter que indica que el caracter que le sigue tiene un significado diferente a lo usual. En este caso, el caracter de escape es la barra invertida <code class="docutils literal notranslate"><span class="pre">\</span></code> y le indica a Python que la comilla simple que le sigue no debe cerrar la cadena, sino que debe ser tratada como un caracter normal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restaurante_2</span> <span class="o">=</span> <span class="s1">&#39;McDonald</span><span class="se">\&#39;</span><span class="s1">s&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">restaurante_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="imprimiendo-y-concatenando-cadenas-de-texto">
+<h3>3.1. Imprimiendo y concatenando cadenas de texto<a class="headerlink" href="#imprimiendo-y-concatenando-cadenas-de-texto" title="Permalink to this heading">#</a></h3>
+<p>Frecuentemente te encontrarás concatenando e imprimiendo combinaciones de cadenas de texto. Considera los siguientes ejemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="s2">&quot;mundo&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola &quot;</span> <span class="o">+</span> <span class="s2">&quot;mundo &quot;</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola mundo !
+Hola mundo !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notas alguna diferencia? Coméntalo con tus compañeros</p>
+<details>
+<summary>Haz clic para ver la respuesta</summary>
+<p>Aunque puedan parecer similares, aquí están ocurriendo dos cosas diferentes. Dicho de manera sencilla: el signo <code class="docutils literal notranslate"><span class="pre">+</span></code> en la expresión está realizando una concatenación, pero la coma no.</p>
+<p><strong>La función ‘print()’</strong>, que hemos visto muchas veces, imprimirá como cadenas de texto todo en una secuencia de expresiones separadas por comas en tu pantalla, y separará los resultados con espacios simples por defecto. Ten en cuenta que puedes mezclar tipos: cualquier cosa que no sea ya una cadena se convierte automáticamente a su representación en cadena.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nro_estudiantes</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;En el salón tenemos&quot;</span><span class="p">,</span> <span class="n">nro_estudiantes</span><span class="p">,</span> <span class="s2">&quot;estudiantes.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Opcional:</strong> Te interesa saber por qué print() imprime los resultados separados por espacios simples? Puedes averiguarlo en la documentación oficial de Python <a class="reference external" href="https://docs.python.org/3/library/functions.html#print">aquí</a>.</p>
+<p>O, si quieres una explicación más sencilla, los Notebooks nos permiten usar comandos especiales para consultar sobre que hace un comando de python. Por ejemplo, si quieres saber qué hace el comando <code class="docutils literal notranslate"><span class="pre">print()</span></code> puedes escribir <code class="docutils literal notranslate"><span class="pre">?print</span></code> y presionar enter. Esto te mostrará una ventana con la documentación del comando.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>print
+</pre></div>
+</div>
+</div>
+</div>
+<p>Según la información brindada, que podemos saber de los argumentos de print? Qué significa el argumento <code class="docutils literal notranslate"><span class="pre">sep</span></code>? Qué significa el argumento <code class="docutils literal notranslate"><span class="pre">end</span></code>? Ejecuta el siguiente código para ver qué sucede cuando cambias los valores de estos argumentos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="s2">&quot;mundo&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="s2">&quot;mundo&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operadores-y-metodos-para-cadenas-de-texto">
+<h3>3.2. Operadores y métodos para cadenas de texto<a class="headerlink" href="#operadores-y-metodos-para-cadenas-de-texto" title="Permalink to this heading">#</a></h3>
+<p>Además de la concatenación, hay otros operadores que se pueden utilizar con cadenas de texto. Por ejemplo, podemos multiplicar una cadena de texto por un número entero para repetirla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi_texto</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mi_texto</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mi_texto</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Son pocos los operadores que podemos usar con cadenas de texto, pero hay muchos <strong>métodos</strong> o comandos de python que podemos utilizar para manipularlas. Los métodos son funciones que se aplican a un objeto específico. En este caso, los métodos son funciones que se aplican a cadenas de texto. Para usar un método, escribimos el nombre del objeto, seguido de un punto, seguido del nombre del método, seguido de paréntesis. Por ejemplo, el método <code class="docutils literal notranslate"><span class="pre">upper()</span></code> convierte una cadena de texto a mayúsculas, y el método <code class="docutils literal notranslate"><span class="pre">lower()</span></code> convierte una cadena de texto a minúsculas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hola mundo&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HOLA MUNDO&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>¿Cómo podemos saber qué métodos están disponibles para un objeto?. Hay 2 maneras de hacerlo:</p>
+<ol class="arabic simple">
+<li><p>Puedes consultar la documentación oficial de Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">aquí</a>. Esta es la manera más completa de hacerlo, pero puede ser un poco abrumadora al principio.</p></li>
+<li><p>Puedes usar el comando <code class="docutils literal notranslate"><span class="pre">dir()</span></code> para ver todos los métodos disponibles para un objeto. Por ejemplo, si quieres saber qué métodos están disponibles para cadenas de texto, puedes escribir <code class="docutils literal notranslate"><span class="pre">dir(str)</span></code> y presionar enter. Esto te mostrará una lista de todos los métodos disponibles para cadenas de texto. Si quieres saber qué hace un método en particular, puedes escribir <code class="docutils literal notranslate"><span class="pre">?str.upper</span></code> y presionar enter. Esto te mostrará una ventana con la documentación del método.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los nombres de métodos que empiezan y terminan con doble guión bajo <code class="docutils literal notranslate"><span class="pre">__</span></code> son métodos especiales que son internos a Python que no necesitas usar por ahora. Excepto por len, que es un método que veremos a lo largo del curso.</p>
+<p>Podemos usar tanto ?str.upper como help(str.upper) para ver la documentación de un método. Podrías mencionar algunas diferencias? Compáralo con lo que observarías en ?print y help(print)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aquí tienes resumido en una tabla los métodos que comúnmente se usan con cadenas de texto:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">str.upper()</span></code></p></td>
+<td><p>convierte la cadena de texto a mayúsculas</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">str.lower()</span></code></p></td>
+<td><p>convierte la cadena de texto a minúsculas</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">str.capitalize()</span></code></p></td>
+<td><p>convierte la primera letra de la cadena de texto a mayúscula</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">str.title()</span></code></p></td>
+<td><p>convierte la primera letra de cada palabra de la cadena de texto a mayúscula</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">str.strip()</span></code></p></td>
+<td><p>elimina los espacios en blanco al principio y al final de la cadena de texto</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">str.replace(old,</span> <span class="pre">new)</span></code></p></td>
+<td><p>reemplaza todas las ocurrencias de old por new en la cadena de texto</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">str.split()</span></code></p></td>
+<td><p>divide la cadena de texto en una lista de cadenas de texto, usando los espacios en blanco como separadores</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">str.count(x)</span></code></p></td>
+<td><p>cuenta la cantidad de ocurrencias de x en la cadena de texto</p></td>
+</tr>
+</tbody>
+</table>
+<p>Juega un poco con estos métodos y observa qué sucede. Recuerda revisar la documentación de cada método para entender cómo usarlos</p>
+<details>
+<summary>Haz clic para ver un ejemplo</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">mi_texto_minus</span> <span class="o">=</span> <span class="s2">&quot;hola mundo&quot;</span>
+    <span class="n">mi_texto_mayus</span> <span class="o">=</span> <span class="n">mi_texto_minus</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mi_texto_mayus</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mi_texto_minus</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Ejercicio 2<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Escribe un programa en Python que solicite al usuario su nombre y su edad. Luego, el programa debe generar una cadena de texto que diga “Hola [nombre], tienes [edad] años”. A continuación, el programa debe contar la cantidad de caracteres en la cadena generada y mostrar el resultado al usuario.</p>
+<p>Para resolver este problema, puedes utilizar los siguientes pasos:</p>
+<ol class="arabic simple">
+<li><p>Solicitar al usuario que ingrese su nombre y guardarlo en una variable.</p></li>
+<li><p>Solicitar al usuario que ingrese su edad y guardarla en otra variable.</p></li>
+<li><p>Concatenar las variables del nombre y la edad para generar la cadena de texto.</p></li>
+<li><p>Utilizar el método <code class="docutils literal notranslate"><span class="pre">len()</span></code> para contar la cantidad de caracteres en la cadena generada. Utiliza help o ? , para saber como usar len</p></li>
+<li><p>Mostrar el resultado al usuario con un mensaje que incluya la cantidad de caracteres.</p></li>
+</ol>
+<details>
+<summary>Haz clic para ver como se usa len()</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Hola&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Dia_2_Trabajando_con_Datos_parte_I.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Clase 2: Trabajando con Datos en Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Dia_4_Trabajando_con_Datos_parte_III.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Día 4 - Trabajando con operadores lógicos y expresiones condicionales</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#al-final-de-este-capitulo-seras-capaz-de">Al final de este capítulo, serás capaz de:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#si-quieres-aprender-mas-sobre-estos-temas-los-siguientes-enlaces-pueden-ser-utiles">Si quieres aprender más sobre estos temas, los siguientes enlaces pueden ser útiles:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos-basicos-en-python">1. Tipos de Datos Básicos en Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspeccion-de-tipos-de-datos-la-funcion-type">Inspección de tipos de datos: La función <code class="docutils literal notranslate"><span class="pre">type()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1-1">Ejercicio 1.1</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-puedes-hacer-con-un-objeto-las-posibilidades-segun-su-tipo">1.1 ¿Qué puedes hacer con un objeto? Las posibilidades según su tipo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nota-sobre-la-lectura-e-interpretacion-de-errores">Nota sobre la lectura e interpretación de errores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-mismo-simbolo-puede-hacer-cosas-diferentes-dependiendo-del-tipo-de-objeto-con-el-que-se-combine">El mismo símbolo puede hacer cosas diferentes dependiendo del tipo de objeto con el que se combine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-de-tipos-por-ejemplo-convertir-enteros-en-cadenas-de-texto">1.2 Conversión de Tipos (por ejemplo, convertir enteros en cadenas de texto)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1-2">Ejercicio 1.2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeros-enteros-y-flotantes">2. Números: Enteros y Flotantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-matematicos">2.1 Operadores Matemáticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio 2.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-3">Ejercicio 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-opcional">Ejercicio Opcional</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definiendo-y-representando-cadenas-de-texto">3. Definiendo y representando cadenas de texto</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imprimiendo-y-concatenando-cadenas-de-texto">3.1. Imprimiendo y concatenando cadenas de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-y-metodos-para-cadenas-de-texto">3.2. Operadores y métodos para cadenas de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio 2</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By H-Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

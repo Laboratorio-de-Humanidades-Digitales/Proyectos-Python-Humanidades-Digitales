@@ -1,0 +1,968 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Clase 2: Trabajando con Datos en Python &#8212; Proyectos de Python en Humanidades Digitales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Dia_2_Trabajando_con_Datos_parte_I';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)" href="Dia_3_Trabajando_con_Datos_parte_II.html" />
+    <link rel="prev" title="Advanced Python" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/H-Lab-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/H-Lab-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Advanced Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Clase 2: Trabajando con Datos en Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Análisis de Datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Dia_3_Trabajando_con_Datos_parte_II.html">Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Dia_4_Trabajando_con_Datos_parte_III.html">Día 4 - Trabajando con operadores lógicos y expresiones condicionales</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/main?urlpath=tree/Jupyter-Book/Notebooks/Dia_2_Trabajando_con_Datos_parte_I.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/blob/main/Jupyter-Book/Notebooks/Dia_2_Trabajando_con_Datos_parte_I.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/issues/new?title=Issue%20on%20page%20%2FNotebooks/Dia_2_Trabajando_con_Datos_parte_I.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/Dia_2_Trabajando_con_Datos_parte_I.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Clase 2: Trabajando con Datos en Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks-de-python">Notebooks de Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-final-de-este-notebook-seras-capaz-de">Al final de este Notebook, serás capaz de:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empecemos-todos-juntos">1. Empecemos todos juntos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hola-universo">1.1. Hola Universo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-matematicas">1.2. Operaciones matemáticas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">2. Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defincion-y-uso-de-variables">2. Definción y uso de variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asignando-valores-a-variables">2.1. Asignando valores a variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejericio-2">Ejericio 2:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombres-de-variables">2.2 Nombres de variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-de-usuario">2.3. Input de usuario</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-3">Ejercicio 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-4">Ejercicio 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-5">Ejercicio 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-6">Ejercicio 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mas-ejercicios">Mas ejercicios</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="clase-2-trabajando-con-datos-en-python">
+<h1>Clase 2: Trabajando con Datos en Python<a class="headerlink" href="#clase-2-trabajando-con-datos-en-python" title="Permalink to this heading">#</a></h1>
+<p>En este curso aprenderemos a cargar, procesar y guardar datos utilizando un lenguaje de programación de fácil comprensión: Python. Python es un lenguaje de programación de alto nivel, lo que significa que es más cercano al lenguaje humano que al lenguaje de las máquinas. Esto hace que sea más fácil de aprender que otros lenguajes de programación.</p>
+<p>Practicaremos Python utilizando Notebooks a través de Google Colab. Colab es un entorno de programación gratuito que se ejecuta en el navegador. No necesitas instalar nada en tu ordenador para usarlo.</p>
+<section id="notebooks-de-python">
+<h2>Notebooks de Python<a class="headerlink" href="#notebooks-de-python" title="Permalink to this heading">#</a></h2>
+<p>Estos Notebooks contienen instrucciones y lo que se denomina ‘bloques de código’. Las instrucciones son párrafos de texto que explican los conceptos que vamos a utilizar. Los ‘bloques de código’ contienen código Python.</p>
+<figure>
+<center>
+<img width=300 src='https://drive.google.com/uc?id=1aOFxn6kOc4nDNIFmXMGRARZTGWOx1MEd' />
+</figure>
+<p>Los Notebooks son bastante sencillos. Algunos consejos para empezar:</p>
+<ul class="simple">
+<li><p>Las celdas de un notebook contienen código o texto. Si ejecutas una celda, se ejecutará el código o se renderizará el texto.</p></li>
+<li><p>Hay cinco formas de ejecutar una celda:</p>
+<ol class="arabic simple">
+<li><p>Haz clic en el botón de ‘Run’ en la parte izquierda del bloque de código.</p></li>
+<li><p>Alt + Enter ejecuta la celda actual y crea una nueva celda.</p></li>
+<li><p>Ctrl + Enter ejecuta la celda actual sin crear una nueva celda. (Cmd + Enter en Mac.)</p></li>
+</ol>
+</li>
+</ul>
+<p><strong>Consejo</strong>: Manten ordenado tu Notebook. Si ejecutas las celdas de manera desordenada puede que obtengas resultados que no esperas.</p>
+<hr class="docutils" />
+<section id="al-final-de-este-notebook-seras-capaz-de">
+<h3>Al final de este Notebook, serás capaz de:<a class="headerlink" href="#al-final-de-este-notebook-seras-capaz-de" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Imprimir infomormación en la pantalla usando la función <code class="docutils literal notranslate"><span class="pre">print()</span></code></p></li>
+<li><p>asignar <em>valores</em> a <em>variables</em> usando nombres válidos y comprensibles</p></li>
+<li><p>Hacer cálculos con Python</p></li>
+<li><p>Usar comentarios para hacer que tu código sea más fácil de entender</p></li>
+<li><p>Tener un entendimiento básico de los aspectos de la programación en Python</p></li>
+</ul>
+</section>
+</section>
+<section id="empecemos-todos-juntos">
+<h2>1. Empecemos todos juntos<a class="headerlink" href="#empecemos-todos-juntos" title="Permalink to this heading">#</a></h2>
+<section id="hola-universo">
+<h3>1.1. Hola Universo<a class="headerlink" href="#hola-universo" title="Permalink to this heading">#</a></h3>
+<p>La mejor manerae de aprender a programar es empezar a programar. Así que vamos a empezar con un programa muy sencillo. Ejecuta la siguiente celda de código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola Universo!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola Universo!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Que esta ocurriendo aquí? Bueno, estamos usando la función <code class="docutils literal notranslate"><span class="pre">print()</span></code> para imprimir el texto ‘Hola Universo’ en la pantalla. Las funciones son bloques de código que realizan una tarea específica. En este caso, la función <code class="docutils literal notranslate"><span class="pre">print()</span></code> muestra el texto que le pasamos entre paréntesis en la pantalla.</p>
+<p><strong>Nota</strong>: Una función es un bloque de código que realiza una tarea específica. Las funciones toman entradas (llamadas argumentos, una palabra ‘elegante’ para referise a los valores que pones dentro de una función) y devuelven salidas. En este caso, la función <code class="docutils literal notranslate"><span class="pre">print()</span></code> toma el texto ‘Hola Universo’ como entrada y devuelve el mismo texto como salida, que se muestra en la pantalla.</p>
+<p>¿Cómo podemos modificar el código para que muestre en el texto tu nombre en lugar de ‘Hola Universo’?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imprimiendo nuestro nombre</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola, [Tu nombre]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Viste que usamos el símbolo ‘#’ para añadir un comentario al código? Los comentarios son líneas de texto que no se ejecutan como código, sino que se utilizan para hacer que el código sea más fácil de entender. Puedes añadir comentarios a tu código para recordar lo que hace, o para ayudar a otros a entenderlo.</p>
+</section>
+<section id="operaciones-matematicas">
+<h3>1.2. Operaciones matemáticas<a class="headerlink" href="#operaciones-matematicas" title="Permalink to this heading">#</a></h3>
+<p>Además de imprimir texto, podemos usar Python como una calculadora. Por ejemplo, podemos usar Python para realizar operaciones matemáticas como la suma y la resta. Ejecuta la siguiente celda de código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suma de dos números</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Resta de dos números</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejercicio 1: Calcula el resultado de la siguiente operación matemática: 4 + 6 - 2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inserta aquí tu código</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="variables">
+<h2>2. Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h2>
+<p>En vez de escribir el valor directamente en la función <code class="docutils literal notranslate"><span class="pre">print()</span></code>, podemos asignar el valor a una variable y luego usar la variable dentro de la función <code class="docutils literal notranslate"><span class="pre">print()</span></code></p>
+<p>Cuando pasamos un valor a la función <code class="docutils literal notranslate"><span class="pre">print()</span></code>, obtenemos el mismo resultado que si pasamos una variable que contiene ese valor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gato</span> <span class="o">=</span> <span class="s2">&quot;Miau&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gato</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Miau
+</pre></div>
+</div>
+</div>
+</div>
+<p>“Miau” es un pedazo de texto, así que lo llamamos una cadena de texto o <em>string</em> en inglés. Los Strings en python siempre van entre comillas simples o dobles (” o ‘). Sin esas comillas, Python pensaría que ‘Miau’ es una variable, por que los nombres de las variables no van entre comillas.</p>
+<p>Los lenguajes de programación pueden verse como <strong>maneras ‘formales’ de decirle a tu computadora que tiene que hacer</strong>. Por lo tanto, los lenguajes de programación hacen uso de reglas estrictas y bien definidas (conocidas como sintaxis). Más adelante veremos que Python conoce un conjunto de diferentes tipos de datos, es decir, diferentes tipos de valores que podemos usar (texto, números, etc.). Cada tipo de dato tiene su propia sintaxis por tanto Python debe saber cómo diferenciarlos.</p>
+<p>Quizás esto suene un poco confuso, pero la primera distinción a tomar en cuenta, que además es muy importante:</p>
+<ul class="simple">
+<li><p>Los nombres de las variables no van entre comillas</p></li>
+<li><p>Los valores que asignamos a las variables van entre comillas si son cadenas de texto</p></li>
+</ul>
+<p>Se ven muy similares, pero son muy diferentes, y tienen propósitos completamente diferentes.</p>
+<p>Veamos el siguiente ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;H-LAB&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;nombre&quot;</span><span class="p">)</span> <span class="c1"># Este es una cadena de texto con el valor &quot;nombre&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span> <span class="c1"># Este es una variable con el valor &quot;H-LAB&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nombre
+H-LAB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como observamos imprimir una cadena de texto “nombre” no es lo mismo que imprimir el valor de la variable nombre. En el primer caso, estamos imprimiendo el texto “nombre”, mientras que en el segundo caso estamos imprimiendo el valor de la variable nombre, que es “H-LAB”.</p>
+<p>Y podemos asignar a nuestras variables valores numéricos también:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="defincion-y-uso-de-variables">
+<h2>2. Definción y uso de variables<a class="headerlink" href="#defincion-y-uso-de-variables" title="Permalink to this heading">#</a></h2>
+<section id="asignando-valores-a-variables">
+<h3>2.1. Asignando valores a variables<a class="headerlink" href="#asignando-valores-a-variables" title="Permalink to this heading">#</a></h3>
+<p>Si recuerdas un poco de la matemática de la escuela, este símbolo se te hará un poco familiar <code class="docutils literal notranslate"><span class="pre">=</span></code>. En matemáticas, el símbolo <code class="docutils literal notranslate"><span class="pre">=</span></code> se utiliza para indicar que dos expresiones tienen el mismo valor. En programación no es tan diferente, pero lo llamamos <code class="docutils literal notranslate"><span class="pre">asingación</span></code>, donde usamos este mismo símbolo <code class="docutils literal notranslate"><span class="pre">=</span></code>, con el nombre de la variable a su izquierda y el valor que queremos asignar a la derecha.</p>
+<p>De esta manera estamos asignando un valor y nombrandolo usando el símbolo de asignación <code class="docutils literal notranslate"><span class="pre">=</span></code>, por tanto luego podemos usar luego fácilmente el nombre de la variable en lugar de tener que escribir el valor completo cada vez que lo necesitemos.</p>
+<p>Pensemos en las variables como cajas donde podemos guardar objetos. Cada caja tiene un nombre(variable) y un contenido(valor). En este caso nuestra variable <code class="docutils literal notranslate"><span class="pre">x</span></code> es una especie de etiqueta que le pusimos a la caja para identificarla. En esta caja ponemos lo que nosotros quisieramos, como algún número, en este caso el valor 22. Por tanto en Python, el término <strong>variable</strong> se refiere a la etiqueta que le ponemos a la caja, mientras que el término <strong>valor</strong> se refiere al contenido de la caja.</p>
+<figure>
+<center>
+<img width=600 src='https://drive.google.com/uc?id=1FFB8tZVVXxX2koxAzq9sgm96qTwd21Xz' />
+</figure>
+<p>Hay que tomar en cuenta que nosotros podemos cambiar el contenido de la caja, por tanto podríamos reutilizar los nombres de variables para guardar diferentes valores. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mensaje</span> <span class="o">=</span> <span class="s2">&quot;Me gustan los perros&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span>
+<span class="n">mensaje</span> <span class="o">=</span> <span class="s2">&quot;Me gustan los gatos&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejericio-2">
+<h4>Ejericio 2:<a class="headerlink" href="#ejericio-2" title="Permalink to this heading">#</a></h4>
+<p>Asigna el valor 10 a la variable <code class="docutils literal notranslate"><span class="pre">y</span></code> y luego imprime el valor de <code class="docutils literal notranslate"><span class="pre">y</span></code> en la pantalla. Luego reasigna el valor 20 a la variable <code class="docutils literal notranslate"><span class="pre">y</span></code> y vuelve a imprimir el valor de <code class="docutils literal notranslate"><span class="pre">y</span></code> en la pantalla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inserta aquí tu código</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Opcional: ¿Qué ocurre si intentas imprimir el valor de una variable que no ha sido definida? (es decir si imprimes w en lugar de y)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inserta aquí tu código y comenta que ocurrió</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cuando ya tenemos creada una variable, podemos reutilizarla en cualquier parte de nuestro código. Ejecuta la siguiente celda de código y mira que ocurre:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+24
+144
+15
+4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="nombres-de-variables">
+<h3>2.2 Nombres de variables<a class="headerlink" href="#nombres-de-variables" title="Permalink to this heading">#</a></h3>
+<p>Hay que tener en cuenta que los <strong>nombres de variables</strong> <code class="docutils literal notranslate"><span class="pre">mensaje</span></code> y <code class="docutils literal notranslate"><span class="pre">x</span></code> utilizados arriba no son parte de Python. En principio, podrías usar cualquier nombre que te guste. Incluso si cambias la variable <code class="docutils literal notranslate"><span class="pre">mensaje</span></code> por algo como <code class="docutils literal notranslate"><span class="pre">gato</span></code> o <code class="docutils literal notranslate"><span class="pre">goku</span></code>, el ejemplo seguiría funcionando:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">goku</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">goku</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sin embargo, los nombres de variables solo son <strong>válidos</strong> si cumplen con ciertas reglas. De lo contrario, obtendrás un error de Python. Aquí hay algunas reglas para nombrar variables en Python:</p>
+<ul class="simple">
+<li><p>Los nombres de las variables deben comenzar con una letra (a - z, A - B) o un guión bajo (_).</p></li>
+<li><p>El resto del nombre de la variable puede consistir en letras, números y guiones bajos.</p></li>
+</ul>
+<p>Asimismo, si bien puedes usar cualquier nombre mientras sean válidos, hay ciertos <strong>convenciones de nombramiento</strong> que es mejor seguir (<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8 Style Guide for Python Code</a>). Por el momento, es suficiente que recuerdes seguir lo siguiente:</p>
+<ul class="simple">
+<li><p>utiliza nombres de variables claros, significativos y descriptivos para que tu código siga siendo comprensible</p></li>
+<li><p>emplea el estilo <code class="docutils literal notranslate"><span class="pre">minusculas_con_guiones_bajos</span></code>, con caracteres en minúscula y guiones bajos para separar palabras</p></li>
+<li><p>no utilices nombres reservados, como <code class="docutils literal notranslate"><span class="pre">print</span></code> o <code class="docutils literal notranslate"><span class="pre">sum</span></code> (estos se volverán de otro color en los Notebooks). <a class="reference external" href="https://www.w3schools.com/python/python_ref_keywords.asp">Aquí</a> hay una lista de palabras reservadas en Python.</p></li>
+</ul>
+<p>Por ejemplo, el siguiente nombre de variable es válido, mucho más descriptivo que <code class="docutils literal notranslate"><span class="pre">x</span></code> y sigue las convenciones de nomenclatura:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segundos_semana</span> <span class="o">=</span> <span class="mi">604800</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segundos_semana</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>604800
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="input-de-usuario">
+<h3>2.3. Input de usuario<a class="headerlink" href="#input-de-usuario" title="Permalink to this heading">#</a></h3>
+<p>Hasta ahora, hemos definido nosotros mismos los valores almacenados en las variables. Sin embargo, también podemos solicitar la entrada de un usuario. Utilizaremos otra función integrada: input(). Esta toma la entrada del usuario y la devuelve como una cadena. Pruébalo a continuación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Por favor ingresa tu nombre: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Carlos
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this heading">#</a></h2>
+<section id="ejercicio-1">
+<h3>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this heading">#</a></h3>
+<p>Escribe un programa en Python que calcule el número de días en tres décadas. Hazlo en una sola línea de código y asigna el resultado a una variable con un nombre claro. Imprime el resultado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código va aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this heading">#</a></h3>
+<p>Reescribe el código anterior asignando cada uno de los valores numéricos a una variable con un nombre claro. Luego, utiliza estas variables para calcular el número de días en tres décadas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Tu código va aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-3">
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this heading">#</a></h3>
+<p>Ejecuta el siguiente bloque de código y observa qué sucede. ¿Puedes corregir los nombres de variables inválidos? Al final, no deberías obtener ningún error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">manzanas</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">_manzanas</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="mi">3</span><span class="n">manzanas</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">manzanas</span><span class="o">%</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">manzanas123</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">cinco_manzanas</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">SieteManzanas</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">siete</span><span class="o">.</span><span class="n">manzanas</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-4">
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this heading">#</a></h3>
+<p>Puedes escribir un código que intercambie los valores de 2 variables ? Pista: Crea una variable extra</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+<span class="n">primer_numero</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">segundo_numero</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-5">
+<h3>Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permalink to this heading">#</a></h3>
+<p>Escribe un programa para solicitar a dos personas que escriban su nombre usando la función <code class="docutils literal notranslate"><span class="pre">input()</span></code>. Guarda esos valores en las variables <code class="docutils literal notranslate"><span class="pre">nombre_1</span></code> y <code class="docutils literal notranslate"><span class="pre">nombre_2</span></code>. Cuando imprimas diles “Hola” a ambos nombres.</p>
+<p>Nota: Para poner un texto junto a una variable en python se puede hacer de la siguiente manera</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Javier&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="n">nombre</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">Hola</span> <span class="n">Javier</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-6">
+<h3>Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permalink to this heading">#</a></h3>
+<p>El siguiente pedazo de código <strong>NO VA A FUNCIONAR</strong>. Como podras ver, va a mostrar un mensaje de error. Puedes saber como podríamos arreglarlo?</p>
+<p>Pista: Dale una mirada al uso de las comillas (“)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;Estamos aprendiendo &quot;</span><span class="n">python</span><span class="s2">&quot; de una manera diferente&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mas-ejercicios">
+<h3>Mas ejercicios<a class="headerlink" href="#mas-ejercicios" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Concatenación de strings</p></li>
+<li><p>Combinar print de text fijo con variables</p></li>
+<li><p>Operaciones aritmeticas (multiplicacion/suma/resta)</p></li>
+<li><p>Conversion entre tipos de variables (casting)</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Advanced Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Dia_3_Trabajando_con_Datos_parte_II.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dia 3 - Tipos de Datos Básicos (Enteros, Flotantes y Strings)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks-de-python">Notebooks de Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-final-de-este-notebook-seras-capaz-de">Al final de este Notebook, serás capaz de:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empecemos-todos-juntos">1. Empecemos todos juntos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hola-universo">1.1. Hola Universo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-matematicas">1.2. Operaciones matemáticas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">2. Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defincion-y-uso-de-variables">2. Definción y uso de variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asignando-valores-a-variables">2.1. Asignando valores a variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejericio-2">Ejericio 2:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombres-de-variables">2.2 Nombres de variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-de-usuario">2.3. Input de usuario</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-3">Ejercicio 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-4">Ejercicio 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-5">Ejercicio 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-6">Ejercicio 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mas-ejercicios">Mas ejercicios</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By H-Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
