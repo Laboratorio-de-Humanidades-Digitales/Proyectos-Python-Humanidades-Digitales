@@ -6,10 +6,10 @@ parts:
     chapters:
     - file: Notebooks/Dia_1_Introduccion_a_Python
 
-  # - caption: Fundamentos de Análisis de Datos
-  #   chapters:
-  #   - file: Notebooks/Dia_3_Trabajando_con_Datos_parte_II
+  - caption: Fundamentos de Análisis de Datos
+    chapters:
+    - file: Notebooks/Dia_3_Trabajando_con_Datos_parte_II
 
-  # - caption: Tema 1
-  #   chapters:
-  #   - file: Notebooks/Dia_4_Trabajando_con_Datos_parte_III
+  - caption: Tema 1
+    chapters:
+    - file: Notebooks/Dia_4_Trabajando_con_Datos_parte_III
