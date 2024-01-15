@@ -1,0 +1,953 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Día 1: Introducción a Proyectos en Python en Humanidades Digitales &#8212; Proyectos de Python en Humanidades Digitales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Dia_1_Fundamentos_Python';</script>
+    <link rel="shortcut icon" href="../_static/H-Lab-logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/H-Lab-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/H-Lab-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Advanced Python
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/main?urlpath=tree/Jupyter-Book/Notebooks/Dia_1_Fundamentos_Python.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/blob/main/Jupyter-Book/Notebooks/Dia_1_Fundamentos_Python.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Laboratorio-de-Humanidades-Digitales/Proyectos-Python-Humanidades-Digitales/issues/new?title=Issue%20on%20page%20%2FNotebooks/Dia_1_Fundamentos_Python.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/Dia_1_Fundamentos_Python.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Día 1: Introducción a Proyectos en Python en Humanidades Digitales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Día 1: Introducción a Proyectos en Python en Humanidades Digitales</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-debes-saber-antes-de-empezar">Que debes saber antes de empezar</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#refrescando-conceptos-basicos-de-python">1. Refrescando conceptos básicos de Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indizacion-de-secuencias">Indización de secuencias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listas">Listas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionales-if-else">Condicionales if-else</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bucles-usando-for">Bucles usando for</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leyendo-y-escribiendo-archivos">Leyendo y escribiendo archivos</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-3">Ejercicio 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-los-paquetes-de-python">2. Introducción a los Paquetes de Python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definiendo-funciones">3. Definiendo funciones</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-4">Ejercicio 4</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="dia-1-introduccion-a-proyectos-en-python-en-humanidades-digitales">
+<h1>Día 1: Introducción a Proyectos en Python en Humanidades Digitales<a class="headerlink" href="#dia-1-introduccion-a-proyectos-en-python-en-humanidades-digitales" title="Permalink to this heading">#</a></h1>
+<p>El auge de los métodos cuantitativos en disciplinas como la arqueología, literatura, historia, lingüística y filosofía ha marcado un cambio significativo en la investigación humanística. Este cambio se ha visto impulsado por la disponibilidad de recursos computacionales económicos y la digitalización masiva de bibliotecas y archivos, lo que permite analizar grandes volúmenes de documentos y datos.</p>
+<p>No obstante, los currículos universitarios en humanidades aún enfrentan el desafío de integrar la investigación cuantitativa de manera efectiva.</p>
+<p>“Proyectos en Python en Humanidades Digitales” tiene como objetivo ofrecer una guía práctica centrada en el uso de Python para el análisis cuantitativo de datos en el ámbito de las humanidades. Este lenguaje de programación, muy difundido en el ámbito académico, se presenta no solo como una herramienta para aprender a programar, sino también como un medio para aplicar métodos cuantitativos en contextos humanísticos.</p>
+<section id="que-debes-saber-antes-de-empezar">
+<h2>Que debes saber antes de empezar<a class="headerlink" href="#que-debes-saber-antes-de-empezar" title="Permalink to this heading">#</a></h2>
+<p>Este recurso no esta dirigido a programar en python desde cero, sino que se asume que el lector tiene conocimientos básicos de programación en python. Si no es tu caso, te recomendamos que revises los recursos del curso de Fundamentos de Python para Humanidades Digitales.</p>
+<p>Las siguientes celdas de código servirán para refrescar algunos conceptos básicos de python. Al mismo tiempo, te permitirán evaluar si tienes los conocimientos necesarios para seguir este curso.</p>
+</section>
+</section>
+<section id="refrescando-conceptos-basicos-de-python">
+<h1>1. Refrescando conceptos básicos de Python<a class="headerlink" href="#refrescando-conceptos-basicos-de-python" title="Permalink to this heading">#</a></h1>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h2>
+<p>Primero que todo, debes recordar como son definidas las variables y como usar el operador de asignación <code class="docutils literal notranslate"><span class="pre">=</span></code> para asignar un valor a una variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Este es un comentario</span>
+
+<span class="n">var</span> <span class="o">=</span> <span class="mi">2024</span> <span class="c1"># Esta es una variable con un valor entero</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Números como <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">-50</span></code>, <code class="docutils literal notranslate"><span class="pre">2024</span></code> son conocidos como enteros y son del tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>. Números con una parte decimal como <code class="docutils literal notranslate"><span class="pre">1.8</span></code>, <code class="docutils literal notranslate"><span class="pre">-50.2</span></code>, <code class="docutils literal notranslate"><span class="pre">2024.0</span></code> son conocidos como números de punto flotante y son del tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>. Cadenas de texto como <code class="docutils literal notranslate"><span class="pre">&quot;Hola&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Esto</span> <span class="pre">es</span> <span class="pre">una</span> <span class="pre">cadena</span> <span class="pre">de</span> <span class="pre">texto&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;2024&quot;</span></code> son conocidas como cadenas de texto y son del tipo <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<p>Por ejemplo la siguiente celda de código asigna el valor <code class="docutils literal notranslate"><span class="pre">1</span></code> a la variable <code class="docutils literal notranslate"><span class="pre">a</span></code>, el valor <code class="docutils literal notranslate"><span class="pre">-50.2</span></code> a la variable <code class="docutils literal notranslate"><span class="pre">b</span></code> y el valor <code class="docutils literal notranslate"><span class="pre">&quot;Hola&quot;</span></code> a la variable <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mf">50.2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;Hola&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indizacion-de-secuencias">
+<h2>Indización de secuencias<a class="headerlink" href="#indizacion-de-secuencias" title="Permalink to this heading">#</a></h2>
+<p>Las cadenas de texto, por lo general, son secuencias de caracteres. Esto significa que cada caracter de una cadena de texto puede ser accedido por medio de un índice. En python, los índices empiezan en <code class="docutils literal notranslate"><span class="pre">0</span></code>. Por ejemplo, el caracter en la posición <code class="docutils literal notranslate"><span class="pre">0</span></code> de la cadena <code class="docutils literal notranslate"><span class="pre">&quot;Hola&quot;</span></code> es <code class="docutils literal notranslate"><span class="pre">&quot;H&quot;</span></code>, el caracter en la posición <code class="docutils literal notranslate"><span class="pre">1</span></code> es <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola
+H
+o
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="listas">
+<h2>Listas<a class="headerlink" href="#listas" title="Permalink to this heading">#</a></h2>
+<p>Las listas son secuencias de elementos. Cada elemento de una lista puede ser accedido por medio de un índice. En python, los índices empiezan en <code class="docutils literal notranslate"><span class="pre">0</span></code>. Por ejemplo, el elemento en la posición <code class="docutils literal notranslate"><span class="pre">0</span></code> de la lista <code class="docutils literal notranslate"><span class="pre">[&quot;Hola&quot;,</span> <span class="pre">&quot;Mundo&quot;]</span></code> es <code class="docutils literal notranslate"><span class="pre">&quot;Hola&quot;</span></code>, el elemento en la posición <code class="docutils literal notranslate"><span class="pre">1</span></code> es <code class="docutils literal notranslate"><span class="pre">&quot;Mundo&quot;</span></code>. A diferencia de las cadenas de texto, los elementos de una lista pueden ser de cualquier tipo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros_primos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Estoy&quot;</span><span class="p">,</span> <span class="s2">&quot;recordando&quot;</span><span class="p">,</span> <span class="s2">&quot;Python.&quot;</span><span class="p">,</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="s2">&quot;Mundo&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>De igual manera podemos acceder a los elementos de una lista por medio de sus índices. De hecho, podemos usar tanto índices positivos como negativos. Por ejemplo, el elemento en la posición <code class="docutils literal notranslate"><span class="pre">-1</span></code> de la lista <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">11,</span> <span class="pre">13,</span> <span class="pre">17,</span> <span class="pre">19]</span></code> es <code class="docutils literal notranslate"><span class="pre">19</span></code>, el elemento en la posición <code class="docutils literal notranslate"><span class="pre">-2</span></code> es <code class="docutils literal notranslate"><span class="pre">17</span></code>.</p>
+<p>Adicionalmente, podemos acceder a un subconjunto de elementos de una lista por medio de la sintaxis <code class="docutils literal notranslate"><span class="pre">lista[inicio:fin]</span></code>. Por ejemplo, la expresión <code class="docutils literal notranslate"><span class="pre">[&quot;Estoy&quot;,</span> <span class="pre">&quot;recordando&quot;,</span> <span class="pre">&quot;Python.&quot;,&quot;Hola&quot;,</span> <span class="pre">&quot;Mundo&quot;][0:2]</span></code> retorna la lista <code class="docutils literal notranslate"><span class="pre">[&quot;Estoy&quot;,</span> <span class="pre">&quot;recordando&quot;]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">numeros_primos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numeros_primos</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># usamos -1 para acceder al ultimo elemento de la lista</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span> <span class="c1"># esto es conocido como slicing</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="condicionales-if-else">
+<h2>Condicionales if-else<a class="headerlink" href="#condicionales-if-else" title="Permalink to this heading">#</a></h2>
+<p>Los condicionales if-else nos permiten ejecutar un bloque de código si se cumple una condición. Para ello, python provee los statement <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code>. Por ejemplo, la siguiente celda de código imprime <code class="docutils literal notranslate"><span class="pre">&quot;Hola&quot;</span></code> si el valor de la variable <code class="docutils literal notranslate"><span class="pre">a</span></code> es igual a <code class="docutils literal notranslate"><span class="pre">1</span></code>, imprime <code class="docutils literal notranslate"><span class="pre">&quot;Mundo&quot;</span></code> si el valor de la variable <code class="docutils literal notranslate"><span class="pre">a</span></code> es igual a <code class="docutils literal notranslate"><span class="pre">2</span></code> y imprime <code class="docutils literal notranslate"><span class="pre">&quot;Adiós&quot;</span></code> en cualquier otro caso.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Ingrese un numero: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mundo&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adiós&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bucles-usando-for">
+<h2>Bucles usando for<a class="headerlink" href="#bucles-usando-for" title="Permalink to this heading">#</a></h2>
+<p>Los bucles usando for nos permiten ejecutar un bloque de código varias veces. Para ello, python provee el statement <code class="docutils literal notranslate"><span class="pre">for</span></code>. Con bucles podemos iterar sobre los elementos de una secuencia (por ejemplo, una cadena de texto o una lista). O sobre los elementos de un rango de números usando la función <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi_cadena</span> <span class="o">=</span> <span class="s2">&quot;Recordando Python ando&quot;</span>
+<span class="n">mi_lista</span> <span class="o">=</span> <span class="n">mi_cadena</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mi_lista</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">mi_lista</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">mi_cadena</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">letra</span><span class="p">)</span>
+
+<span class="n">final</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mi_lista</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">final</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mi_lista</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">final</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mi_cadena</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">final</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mi_cadena</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="leyendo-y-escribiendo-archivos">
+<h2>Leyendo y escribiendo archivos<a class="headerlink" href="#leyendo-y-escribiendo-archivos" title="Permalink to this heading">#</a></h2>
+<p>Python provee la función <code class="docutils literal notranslate"><span class="pre">open</span></code> para leer y escribir archivos. Esta función recibe como parámetro el nombre del archivo y retorna un objeto que representa el archivo. Para leer el contenido de un archivo, podemos usar el método <code class="docutils literal notranslate"><span class="pre">read</span></code> del objeto que representa el archivo. Para escribir en un archivo, podemos usar el método <code class="docutils literal notranslate"><span class="pre">write</span></code> del objeto que representa el archivo. Dependiendo del modo en que se abra el archivo, este puede ser ‘x’ (crear), ‘r’ (lectura), ‘w’ (escritura) o ‘a’ (agregar).</p>
+<p>Usamos el comando ‘with’ para asegurarnos que el archivo sea abierto y cerrado correctamente. Por ejemplo, la siguiente celda de código crea un archivo llamado <code class="docutils literal notranslate"><span class="pre">mi_texto.txt</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mi_texto.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+    <span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;THE WOLF, THE DOG AND THE COLLAR</span><span class="se">\n\n</span><span class="s2">A comfortably plump dog happened to run into a wolf. The wolf asked the dog where he had </span><span class="se">\n</span><span class="s2">been finding enough food to get so big and fat. &#39;It is a man,&#39; said the dog, &#39;who gives me </span><span class="se">\n</span><span class="s2">all this food to eat.&#39; The wolf then asked him, &#39;And what about that bare spot there on </span><span class="se">\n</span><span class="s2">your neck?&#39; The dog replied, &#39;My skin has been rubbed bare by the iron collar which my </span><span class="se">\n</span><span class="s2">master forged and placed upon my neck.&#39; The wolf then jeered at the dog and said, &#39;Keep </span><span class="se">\n</span><span class="s2">your luxury to yourself then! I don&#39;t want anything to do with it, if my neck will have to </span><span class="se">\n</span><span class="s2">chafe against a chain of iron!&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y de igual manera, la siguiente celda de código lee el contenido del archivo <code class="docutils literal notranslate"><span class="pre">mi_texto.txt</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mi_texto.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">archivo</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>THE WOLF, THE DOG AND THE COLLAR
+
+A comfortably plump dog happened to run into a wolf. The wolf asked the dog where he had 
+been finding enough food to get so big and fat. &#39;It is a man,&#39; said the dog, &#39;who gives me 
+all this food to eat.&#39; The wolf then asked him, &#39;And what about that bare spot there on 
+your neck?&#39; The dog replied, &#39;My skin has been rubbed bare by the iron collar which my 
+master forged and placed upon my neck.&#39; The wolf then jeered at the dog and said, &#39;Keep 
+your luxury to yourself then! I don&#39;t want anything to do with it, if my neck will have to 
+chafe against a chain of iron!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mi_texto.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+    <span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Hola mundo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mi_texto.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">archivo</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>THE WOLF, THE DOG AND THE COLLAR
+
+A comfortably plump dog happened to run into a wolf. The wolf asked the dog where he had 
+been finding enough food to get so big and fat. &#39;It is a man,&#39; said the dog, &#39;who gives me 
+all this food to eat.&#39; The wolf then asked him, &#39;And what about that bare spot there on 
+your neck?&#39; The dog replied, &#39;My skin has been rubbed bare by the iron collar which my 
+master forged and placed upon my neck.&#39; The wolf then jeered at the dog and said, &#39;Keep 
+your luxury to yourself then! I don&#39;t want anything to do with it, if my neck will have to 
+chafe against a chain of iron!&#39;
+
+##################################################
+
+Hola mundo
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ejercicios">
+<h1>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this heading">#</a></h1>
+<section id="ejercicio-1">
+<h2>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this heading">#</a></h2>
+<p>Escribe un programa que lea el archivo <code class="docutils literal notranslate"><span class="pre">mi_texto.txt</span></code> y cuente el número de palabras que contiene. Para ello, puedes usar el método <code class="docutils literal notranslate"><span class="pre">split</span></code> de las cadenas de texto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código va aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-2">
+<h2>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this heading">#</a></h2>
+<p>Determinar si un número entero positivo es capicúa (palíndromo), es decir, aquel número que se lee igual de izquierda a derecha y de derecha a izquierda. Por ejemplo, 34543, 202, 8888, son capicúas.</p>
+<p>Solicitar al usuario un número entero positivo y determinar si es capicúa o no. Validar que el número ingresado sea positivo.</p>
+<details>
+<summary> Ver solución </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Ingrese un número positivo: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número no es positivo&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">str_num</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">str_num</span> <span class="o">==</span> <span class="n">str_num</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número es palíndromo&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número no es palíndromo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu código va aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-3">
+<h2>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this heading">#</a></h2>
+<p>Imprimir en forma tabular:
+a) Las letras mayúsculas del alfabeto y su código ASCII
+b) Las letras minúsculas del alfabeto y su código ASCII
+c) Los dígitos y sus códigos ASCII</p>
+<p><em>Hint:</em> Puedes usar la función <code class="docutils literal notranslate"><span class="pre">ord</span></code> para obtener el código ASCII de un caracter y la función <code class="docutils literal notranslate"><span class="pre">chr</span></code> para obtener el caracter a partir de su código ASCII.</p>
+<details>
+<summary> Ver solución </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Letras mayúsculas&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">),</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Letras minúsculas&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dígitos&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">),</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;9&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="introduccion-a-los-paquetes-de-python">
+<h1>2. Introducción a los Paquetes de Python<a class="headerlink" href="#introduccion-a-los-paquetes-de-python" title="Permalink to this heading">#</a></h1>
+<p>Python provee un rango inmenso de funcionalidades adicionales a las que vienen por defecto. Estas funcionalidades adicionales son conocidas como paquetes. Los paquetes son colecciones de módulos que pueden ser importados en un programa de python. Para poder usar un paquete, hacemos uso del comando <code class="docutils literal notranslate"><span class="pre">import</span></code>. Por ejemplo, la siguiente celda de código importa el paquete <code class="docutils literal notranslate"><span class="pre">math</span></code> y usa la función <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> para calcular la raíz cuadrada de <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4142135623730951
+</pre></div>
+</div>
+</div>
+</div>
+<p>El paquete <code class="docutils literal notranslate"><span class="pre">math</span></code> es un paquete que provee una variedad de funciones matemáticas.</p>
+<p>Existe una relación de paquetes que son considerados como los paquetes estándar de python. Estos paquetes son mantenidos por la Python Software Foundation y vienen incluidos en la instalación de python. Algunos de estos paquetes son:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Paquete</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>math</p></td>
+<td><p>Provee funciones matemáticas básicas como raíz cuadrada, logaritmos, funciones trigonométricas, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p>random</p></td>
+<td><p>Genera números aleatorios y realiza operaciones relacionadas con la aleatoriedad.</p></td>
+</tr>
+<tr class="row-even"><td><p>datetime</p></td>
+<td><p>Manipula fechas y horas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>os</p></td>
+<td><p>Proporciona funciones para interactuar con el sistema operativo, como acceder a archivos y directorios.</p></td>
+</tr>
+<tr class="row-even"><td><p>sys</p></td>
+<td><p>Proporciona información y funciones relacionadas con el sistema.</p></td>
+</tr>
+<tr class="row-odd"><td><p>json</p></td>
+<td><p>Codifica y decodifica datos en formato JSON.</p></td>
+</tr>
+<tr class="row-even"><td><p>csv</p></td>
+<td><p>Lee y escribe archivos CSV (valores separados por comas).</p></td>
+</tr>
+<tr class="row-odd"><td><p>re</p></td>
+<td><p>Proporciona operaciones de expresiones regulares.</p></td>
+</tr>
+<tr class="row-even"><td><p>numpy</p></td>
+<td><p>Proporciona estructuras de datos y funciones para realizar cálculos numéricos eficientes.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Sin embargo, existen muchos otros paquetes que no vienen incluidos en la instalación de python. Estos paquetes pueden ser instalados usando el gestor de paquetes <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<p>En el caso de colab, podemos ejecutar comandos de terminal usando el símbolo <code class="docutils literal notranslate"><span class="pre">!</span></code>. Por ejemplo, la siguiente celda de código instala el paquete <code class="docutils literal notranslate"><span class="pre">pandas</span></code> usando el comando <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas
+</pre></div>
+</div>
+</div>
+</div>
+<p>Existe una amplia variedad de paquetes, muchos de ellos mantenidos por la gran comunidad de python. Muchos de ellos tienen funcionalidades similares, por lo que es importante conocer las características de cada uno de ellos para poder elegir el más adecuado para cada caso. Por lo general los paquetes tienen una documentación muy completa que puede ser consultada en sus respectivas páginas web.</p>
+</section>
+<section id="definiendo-funciones">
+<h1>3. Definiendo funciones<a class="headerlink" href="#definiendo-funciones" title="Permalink to this heading">#</a></h1>
+<p>Adicionalmente a los funciones que vienen por defecto en python, podemos definir nuestras propias funciones. Para ello, usamos el comando <code class="docutils literal notranslate"><span class="pre">def</span></code>.</p>
+<p>Por otro lado, las funciones pueden recibir parámetros. Lo que quiere decir que podemos pasarle valores a una función a través de una variable y usar estos valores dentro de la función. Por ejemplo, la siguiente función toma un número y retorna el cuadrado de ese número.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cuadrado</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">potencia</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">potencia</span>
+</pre></div>
+</div>
+<p>Asimismo, las funciones pueden retornar valores. la cual obtendremos al llamar la función.</p>
+<p>Por ejemplo, la siguiente función toma una cadena de texto y retorna el número de palabras que terminan en <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_o</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s2">&quot;o&quot;</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="s2">&quot;Mundo&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;ando&quot;</span><span class="p">,</span> <span class="s2">&quot;amiga&quot;</span><span class="p">,</span> <span class="s2">&quot;estudiante&quot;</span><span class="p">,</span> <span class="s2">&quot;oso&quot;</span><span class="p">,</span> <span class="s2">&quot;casa&quot;</span><span class="p">,</span> <span class="s2">&quot;perro&quot;</span><span class="p">,</span> <span class="s2">&quot;gato&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">conteo</span> <span class="o">=</span> <span class="n">count_o</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="n">conteo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola 1
+Mundo 1
+Python 1
+ando 1
+amiga 0
+estudiante 0
+oso 2
+casa 0
+perro 1
+gato 1
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejercicio-4">
+<h2>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permalink to this heading">#</a></h2>
+<p>Determinar si una cadena de texto es un palíndromo. Para ello se le solicita que defina una función que reciba como parámetro una cadena de texto y retorne <code class="docutils literal notranslate"><span class="pre">True</span></code> si la cadena es un palíndromo y <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+<p>Solicite al usuario una cadena de texto y determine si es un palíndromo o no.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Día 1: Introducción a Proyectos en Python en Humanidades Digitales</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-debes-saber-antes-de-empezar">Que debes saber antes de empezar</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#refrescando-conceptos-basicos-de-python">1. Refrescando conceptos básicos de Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indizacion-de-secuencias">Indización de secuencias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listas">Listas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionales-if-else">Condicionales if-else</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bucles-usando-for">Bucles usando for</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leyendo-y-escribiendo-archivos">Leyendo y escribiendo archivos</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-1">Ejercicio 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-3">Ejercicio 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-a-los-paquetes-de-python">2. Introducción a los Paquetes de Python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definiendo-funciones">3. Definiendo funciones</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-4">Ejercicio 4</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By H-Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
